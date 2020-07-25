@@ -2,13 +2,13 @@ module.exports = {
   siteMetadata: {
     title: `Gatsby Starter Blog`,
     author: {
-      name: `Kyle Mathews`,
+      name: `Rajah Maggay`,
       summary: `who lives and works in San Francisco building useful things.`,
     },
-    description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.app/`,
+    description: `Rajah Maggay is running for City Council`,
+    siteUrl: `https://quirky-austin-231cc0.netlify.app`,
     social: {
-      twitter: `kylemathews`,
+      twitter: `RajahMaggay`,
     },
   },
   plugins: [
@@ -33,7 +33,7 @@ module.exports = {
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 590,
+              maxWidth: 700,
             },
           },
           {

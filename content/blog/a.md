@@ -5,4 +5,4 @@ description: a
 ---
 a
 
-![](/img/elon-musk-2010.jpg)
+![](../assets/elon-musk-2010.jpg)
