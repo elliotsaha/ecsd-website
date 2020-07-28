@@ -5,4 +5,4 @@ description: test
 ---
 **testing,**
 
-![test image](content/assets/frame-1.svg "test image")
+![test image](../assets/profile-pic.jpg "test image")
