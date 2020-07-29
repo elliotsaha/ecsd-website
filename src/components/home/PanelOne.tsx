@@ -19,6 +19,12 @@ const useStyles = makeStyles((theme: Theme) =>
       [theme.breakpoints.down(981)]: {
         height: "38.5rem",
       },
+      [theme.breakpoints.down(378)]: {
+        height: "32.5rem",
+      },
+      [theme.breakpoints.down(360)]: {
+        height: "30.5rem",
+      },
     },
     nameContainer: {
       position: "absolute",
@@ -41,6 +47,12 @@ const useStyles = makeStyles((theme: Theme) =>
         transform: "translateY(-120%)",
         lineHeight: '4rem',
         paddingLeft: '1rem'
+      },
+      [theme.breakpoints.down(378)]: {
+        transform: "translateY(-150%)",
+      },
+      [theme.breakpoints.down(321)]: {
+        transform: "translateY(-180%)",
       },
     },
     name: {
