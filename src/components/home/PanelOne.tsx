@@ -9,7 +9,7 @@ import "react-typist/dist/Typist.css"
 import Instagram from '../../img/instagram.svg'
 import Twitter from '../../img/twitter.svg'
 import LinkedIn from '../../img/linkedIn.svg'
-import RajahMaggay from '../../img/RajahMaggayGrey.svg'
+import RajahMaggay from '../../img/RajahMaggayGrey.png'
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
