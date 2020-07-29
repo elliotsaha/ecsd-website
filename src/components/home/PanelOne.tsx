@@ -5,6 +5,12 @@ import { scroller } from "react-scroll"
 import Typist from "react-typist"
 import "react-typist/dist/Typist.css"
 
+// Images
+import Instagram from '../../img/instagram.svg'
+import Twitter from '../../img/twitter.svg'
+import LinkedIn from '../../img/linkedIn.svg'
+import RajahMaggay from '../../img/RajahMaggayGrey.svg'
+
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     Panel: {
@@ -21,7 +27,7 @@ const useStyles = makeStyles((theme: Theme) =>
       color: "white",
       top: "50%",
       paddingLeft: "2rem",
-      transform: "translateY(-50%)",
+      transform: "translateY(-30%)",
       [theme.breakpoints.down(1320)]: {
         lineHeight: "6rem",
       },
@@ -200,7 +206,7 @@ export default function PanelOne() {
               target="_blank"
               className={classes.icon}
             >
-              <img src="img/linkedIn.svg" alt="Linked In" />
+              <img src={LinkedIn} alt="Linked In" />
             </a>
             <a
               href="https://twitter.com/RajahMaggay"
@@ -208,7 +214,7 @@ export default function PanelOne() {
               target="_blank"
               className={classes.icon}
             >
-              <img src="img/twitter.svg" alt="Twitter" />
+              <img src={Twitter} alt="Twitter" />
             </a>
             <a
               href="https://www.instagram.com/rajahmaggay/"
@@ -216,14 +222,14 @@ export default function PanelOne() {
               target="_blank"
               className={classes.icon}
             >
-              <img src="img/instagram.svg" alt="Instagram" />
+              <img src={Instagram} alt="Instagram" />
             </a>
           </div>
         </div>
         <div className={classes.imageContainer}>
           <img
-            src="img/RajahMaggayGrey.svg"
-            alt="Rajah Maggay Grey Scaled"
+            src={RajahMaggay}
+            alt="Rajah Maggay"
             className={classes.image}
           />
           <div className={classes.messageText}>
