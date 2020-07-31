@@ -14,6 +14,7 @@ import RajahMaggay from '../../img/RajahMaggayGrey.png'
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     Panel: {
+      position: 'relative',
       backgroundColor: "#333645",
       height: "100vh",
       [theme.breakpoints.down(981)]: {
