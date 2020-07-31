@@ -39,6 +39,16 @@ const useStyles = makeStyles(theme =>
     appBar: {
       backgroundColor: "transparent",
       textTransform: "none",
+      transition: 'all 0.15s ease',
+      [theme.breakpoints.down(981)]: {
+        display: "none",
+      },
+    },
+    appBarScroll: {
+      transition: 'all 0.15s ease',
+      background: "#1A1D29",
+      paddingBottom: '1rem',
+      textTransform: "none",
       [theme.breakpoints.down(981)]: {
         display: "none",
       },
@@ -111,6 +121,16 @@ const useStyles = makeStyles(theme =>
         display: "block",
       },
       background: "transparent",
+      transition: 'all 0.15s ease',
+    },
+    appBarMobileScroll: {
+      display: "none",
+      [theme.breakpoints.down(981)]: {
+        transition: 'all 0.15s ease',
+        paddingBottom: '0.5rem',
+        display: "block",
+        background: "#1A1D29",
+      },
     },
     menuButton: {
       marginRight: theme.spacing(2),
@@ -119,7 +139,7 @@ const useStyles = makeStyles(theme =>
       },
       color: "white",
       marginLeft: "0.25rem",
-      marginTop: "0.2rem",
+      marginTop: "0.5rem",
     },
     sideBarActive: {},
     sideBarInactive: {
@@ -172,6 +192,19 @@ const useStyles = makeStyles(theme =>
 
 export default function Navbar() {
   const classes = useStyles()
+  const [scrollClass, setScrollClass] = useState(classes.appBar)
+  const [scrollMobileClass, setScrollMobileClass] = useState(classes.appBarMobile)
+  useEffect(() => {
+    document.addEventListener('scroll', () => {
+      if (window.scrollY > 30) {
+        setScrollClass(classes.appBarScroll)
+        setScrollMobileClass(classes.appBarMobileScroll)
+      } else {
+        setScrollClass(classes.appBar)
+        setScrollMobileClass(classes.appBarMobile)
+      }
+    });
+  });
 
   const theme = useTheme()
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -301,7 +334,7 @@ export default function Navbar() {
 
   return (
     <React.Fragment>
-      <AppBar position="fixed" className={classes.appBar} elevation={0}>
+      <AppBar position="fixed" className={scrollClass} elevation={0}>
         <div className={classes.itemContainer}>
           <div className={classes.nameContainer}>Rajah Maggay.</div>
           <div className={classes.linkContainer}>
@@ -348,7 +381,7 @@ export default function Navbar() {
         </div>
       </AppBar>
 
-      <AppBar position="fixed" className={classes.appBarMobile} elevation={0}>
+      <AppBar position="fixed" className={scrollMobileClass} elevation={0}>
         <IconButton
           aria-label="Open drawer"
           edge="start"
