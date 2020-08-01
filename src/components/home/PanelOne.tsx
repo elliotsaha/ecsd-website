@@ -38,22 +38,10 @@ const useStyles = makeStyles((theme: Theme) =>
       [theme.breakpoints.down(1320)]: {
         lineHeight: "6rem",
       },
-      [theme.breakpoints.down(981)]: {
-        transform: "translateY(-80%)",
-      },
-      [theme.breakpoints.down(800)]: {
-        transform: "translateY(-110%)",
-      },
       [theme.breakpoints.down(500)]: {
-        transform: "translateY(-120%)",
+        transform: "translateY(30%)",
         lineHeight: '4rem',
         paddingLeft: '1rem'
-      },
-      [theme.breakpoints.down(378)]: {
-        transform: "translateY(-150%)",
-      },
-      [theme.breakpoints.down(321)]: {
-        transform: "translateY(-180%)",
       },
     },
     name: {

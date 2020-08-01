@@ -14,6 +14,10 @@ const useStyles = makeStyles((theme: Theme) =>
       backgroundColor: "#333645",
       paddingTop: "3rem",
       overflow: "auto",
+      position: 'relative',
+      [theme.breakpoints.down(981)]: {
+        backgroundColor: "#242734",
+      },
     },
     cardGrid: {
       overflow: "auto",
@@ -52,6 +56,9 @@ const useStyles = makeStyles((theme: Theme) =>
     cardBody: {
       overflow: "auto",
       backgroundColor: "#242734",
+      [theme.breakpoints.down(981)]: {
+        backgroundColor: "#333645",
+      },
       height: "auto",
       maxWidth: "25rem",
       [theme.breakpoints.down(445)]: {
