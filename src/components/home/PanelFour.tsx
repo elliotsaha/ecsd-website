@@ -34,6 +34,12 @@ const useStyles = makeStyles((theme: Theme) =>
       fontFamily: "Gilroy, sans-serif",
       fontWeight: "bolder",
       fontSize: "4rem",
+      [theme.breakpoints.down(420)]: {
+        fontSize: '3.2rem',
+      },
+      [theme.breakpoints.down(340)]: {
+        fontSize: '2.8rem',
+      },
     },
     para: {
       marginTop: "1rem",
