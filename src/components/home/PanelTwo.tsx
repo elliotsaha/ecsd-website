@@ -9,13 +9,19 @@ const useStyles = makeStyles((theme: Theme) =>
       fontFamily: "Gilroy, sans-serif",
 	  textAlign: "center",
 	  paddingTop: '3rem',
-	  paddingBottom: '6rem'
+    paddingBottom: '6rem',
+    [theme.breakpoints.down(981)]: {
+      backgroundColor: "#333645",
+    },
     },
     title: {
       color: "white",
       fontWeight: "bolder",
 	  fontSize: "6rem",
-	  lineHeight: '8rem',
+    lineHeight: '8rem',
+    [theme.breakpoints.down(445)]: {
+      fontSize: "4rem",
+    },
     },
     bar: {
       background:
@@ -28,7 +34,7 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     para: {
       color: "white",
-      fontSize: "1.5rem",
+      fontSize: "1.75rem",
       paddingRight: "20rem",
       paddingLeft: "20rem",
       [theme.breakpoints.down(1181)]: {
