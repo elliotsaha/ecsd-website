@@ -13,7 +13,7 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-typescript`,
-    `gatsby-plugin-transition-link`,
+    
     {
       resolve: `gatsby-plugin-material-ui`,
       options: {
@@ -46,6 +46,13 @@ module.exports = {
       options: {
         path: `${__dirname}/content/assets`,
         name: `assets`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/src/img/`,
+        name: `img`,
       },
     },
     {
@@ -98,6 +105,13 @@ module.exports = {
         pathToConfigModule: `src/utils/typography`,
       },
     },
+    {
+      resolve: `gatsby-plugin-transition-link`,
+      options: {
+        injectPageProps: false,
+      },
+    },
+    
     `gatsby-plugin-netlify-cms`
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline

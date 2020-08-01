@@ -13,10 +13,9 @@ const BlogIndex = ({ data, location }) => {
 
   return (
     <Layout>
-      <div style={{backgroundColor: 'black'}}>
+      <div style={{backgroundColor: 'grey'}}>
         <BlogLayout location={location} title={siteTitle}>
           <SEO title="All posts" />
-          <Bio />
           {posts.map(({ node }) => {
             const title = node.frontmatter.title || node.fields.slug
             return (

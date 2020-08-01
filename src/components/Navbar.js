@@ -6,7 +6,6 @@ import {
   useTheme,
   withStyles,
 } from "@material-ui/core/styles"
-import AniLink from "gatsby-plugin-transition-link/AniLink"
 import AppBar from "@material-ui/core/AppBar"
 import Toolbar from "@material-ui/core/Toolbar"
 import { Link } from "gatsby"
@@ -37,18 +36,22 @@ const drawerWidth = 240
 const useStyles = makeStyles(theme =>
   createStyles({
     appBar: {
+      width: "100%",
       backgroundColor: "transparent",
       textTransform: "none",
-      transition: 'all 0.15s ease',
+      transition: "all 0.15s ease",
+      position: "fixed",
       [theme.breakpoints.down(981)]: {
         display: "none",
       },
     },
     appBarScroll: {
-      transition: 'all 0.15s ease',
+      width: "100%",
+      transition: "all 0.15s ease",
       background: "#1A1D29",
-      paddingBottom: '1rem',
+      paddingBottom: "1rem",
       textTransform: "none",
+      position: "fixed",
       [theme.breakpoints.down(981)]: {
         display: "none",
       },
@@ -74,7 +77,6 @@ const useStyles = makeStyles(theme =>
     drawerPaper: {
       width: drawerWidth,
       background: "#7A8DFF",
-      
     },
     inactive: {
       opacity: "50%",
@@ -118,16 +120,19 @@ const useStyles = makeStyles(theme =>
     appBarMobile: {
       display: "none",
       [theme.breakpoints.down(981)]: {
+        position: "fixed",
+        width: "100%",
         display: "block",
       },
       background: "transparent",
-      transition: 'all 0.15s ease',
+      transition: "all 0.15s ease",
     },
     appBarMobileScroll: {
       display: "none",
       [theme.breakpoints.down(981)]: {
-        transition: 'all 0.15s ease',
-        paddingBottom: '0.5rem',
+        position: "fixed",
+        width: "100%",
+        transition: "all 0.15s ease",
         display: "block",
         background: "#1A1D29",
       },
@@ -139,7 +144,8 @@ const useStyles = makeStyles(theme =>
       },
       color: "white",
       marginLeft: "0.25rem",
-      marginTop: "0.5rem",
+      marginTop: '0.3rem',
+      marginBottom: '0.3rem',
     },
     sideBarActive: {},
     sideBarInactive: {
@@ -163,8 +169,9 @@ const useStyles = makeStyles(theme =>
       position: "absolute",
       top: 0,
       right: 0,
-      paddingTop: "0.5rem",
+      paddingTop: "0.25rem",
       marginRight: "0.5rem",
+      marginTop: '0.3rem',
     },
     socialIcons: {
       paddingLeft: "2rem",
@@ -185,17 +192,19 @@ const useStyles = makeStyles(theme =>
       },
     },
     socialIconsInner: {
-      width: "3rem",
-    }
+      width: "2.5rem",
+    },
   })
 )
 
 export default function Navbar() {
   const classes = useStyles()
   const [scrollClass, setScrollClass] = useState(classes.appBar)
-  const [scrollMobileClass, setScrollMobileClass] = useState(classes.appBarMobile)
+  const [scrollMobileClass, setScrollMobileClass] = useState(
+    classes.appBarMobile
+  )
   useEffect(() => {
-    document.addEventListener('scroll', () => {
+    document.addEventListener("scroll", () => {
       if (window.scrollY > 30) {
         setScrollClass(classes.appBarScroll)
         setScrollMobileClass(classes.appBarMobileScroll)
@@ -203,8 +212,8 @@ export default function Navbar() {
         setScrollClass(classes.appBar)
         setScrollMobileClass(classes.appBarMobile)
       }
-    });
-  });
+    })
+  })
 
   const theme = useTheme()
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -268,9 +277,9 @@ export default function Navbar() {
         {itemsList.map((item, index) => {
           const { text, icon, link, onClick } = item
           return (
-            <AniLink
+            <Link
               to={link}
-              paintDrip
+              fade
               hex="#7A8DFF"
               duration={0.5}
               activeClassName={classes.sideBarActive}
@@ -293,16 +302,16 @@ export default function Navbar() {
                   className={classes.sideBarText}
                 />
               </ListItem>
-            </AniLink>
+            </Link>
           )
         })}
         <Divider />
         {Contact.map((item, index) => {
           const { text, icon, link, onClick } = item
           return (
-            <AniLink
+            <Link
               to={link}
-              paintDrip
+              fade
               hex="#7A8DFF"
               duration={0.5}
               activeClassName={classes.sideBarActive}
@@ -325,7 +334,7 @@ export default function Navbar() {
                   className={classes.sideBarText}
                 />
               </ListItem>
-            </AniLink>
+            </Link>
           )
         })}
       </List>
@@ -338,45 +347,34 @@ export default function Navbar() {
         <div className={classes.itemContainer}>
           <div className={classes.nameContainer}>Rajah Maggay.</div>
           <div className={classes.linkContainer}>
-            <AniLink
+            <Link
               to="/"
-              paintDrip
-              hex="#65ACED"
-              duration={0.5}
               className={classes.inactive}
               activeClassName={classes.active}
             >
               Home
-            </AniLink>
-            <AniLink
+            </Link>
+            <Link
               to="/about"
-              paintDrip
-              hex="#6CA2F3"
-              duration={0.5}
               className={classes.inactive}
               activeClassName={classes.active}
             >
               About
-            </AniLink>
-            <AniLink
+            </Link>
+            <Link
               to="/blog"
-              paintDrip
-              hex="#7397F9"
-              duration={0.5}
               className={classes.inactive}
               activeClassName={classes.active}
             >
               Blog
-            </AniLink>
-            <AniLink
+            </Link>
+            <Link
               to="/initiatives"
-              hex="#7A8DFF"
-              duration={0.5}
               className={classes.inactive}
               activeClassName={classes.active}
             >
               Initiatives
-            </AniLink>
+            </Link>
           </div>
         </div>
       </AppBar>
@@ -394,27 +392,39 @@ export default function Navbar() {
           <a
             href="https://www.linkedin.com/in/rajahmaggay/"
             rel="noopener noreferrer"
-            target="_blank" 
+            target="_blank"
             className={classes.socialIcons}
           >
-            <img src={LinkedIn} className={classes.socialIconsInner} alt="LinkedIn"/>
+            <img
+              src={LinkedIn}
+              className={classes.socialIconsInner}
+              alt="LinkedIn"
+            />
           </a>
-<a
-              href="https://twitter.com/RajahMaggay"
-              rel="noopener noreferrer"
-              target="_blank"
-              className={classes.socialIcons}
-            >
-              <img src={Twitter} className={classes.socialIconsInner} alt="Twitter" />
-            </a>
-            <a
-              href="https://www.instagram.com/rajahmaggay/"
-              rel="noopener noreferrer"
-              target="_blank"
-              className={classes.socialIcons}
-            >
-              <img src={Instagram} className={classes.socialIconsInner} alt="Instagram" />
-            </a>
+          <a
+            href="https://twitter.com/RajahMaggay"
+            rel="noopener noreferrer"
+            target="_blank"
+            className={classes.socialIcons}
+          >
+            <img
+              src={Twitter}
+              className={classes.socialIconsInner}
+              alt="Twitter"
+            />
+          </a>
+          <a
+            href="https://www.instagram.com/rajahmaggay/"
+            rel="noopener noreferrer"
+            target="_blank"
+            className={classes.socialIcons}
+          >
+            <img
+              src={Instagram}
+              className={classes.socialIconsInner}
+              alt="Instagram"
+            />
+          </a>
         </div>
       </AppBar>
 

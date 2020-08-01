@@ -4,7 +4,7 @@ import Button from "@material-ui/core/Button"
 import { scroller } from "react-scroll"
 import Typist from "react-typist"
 import "react-typist/dist/Typist.css"
-
+import Img from "gatsby-image"
 // Images
 import Instagram from '../../img/instagram.svg'
 import Twitter from '../../img/twitter.svg'
