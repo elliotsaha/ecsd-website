@@ -73,7 +73,7 @@ const useStyles = makeStyles((theme: Theme) =>
         maxWidth: "30rem",
       },
       [theme.breakpoints.down(1100)]: {
-        maxWidth: "27rem",
+        maxWidth: "26rem",
       },
       height: "auto",
       maxWidth: "37rem",
