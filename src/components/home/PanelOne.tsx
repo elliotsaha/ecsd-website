@@ -77,7 +77,10 @@ const useStyles = makeStyles((theme: Theme) =>
       alignItems: "flex-end",
     },
     image: {
+      visibility: 'hidden',
       display: "block",
+      position: 'absolute',
+      right: '500px',
       marginBottom: 0,
       marginLeft: "20rem",
       opacity: "62.5%",
@@ -249,7 +252,7 @@ export default function PanelOne() {
 
         <div className={classes.imageContainer}>
           <Tween
-            from={{ x: "-500px", opacity: 0 }}
+            to={{opacity: 1, x: '500px', position: 'relative', visibility: 'visible'}}
             duration={2.5}
             ease="back.out(0.1)"
           >
