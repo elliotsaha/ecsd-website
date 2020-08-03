@@ -81,6 +81,9 @@ const useStyles = makeStyles((theme: Theme) =>
       [theme.breakpoints.down(700)]: {
         fontSize: "1.1rem",
       },
+      [theme.breakpoints.down(470)]: {
+        display: "none",
+      },
       paddingBottom: "1.5rem",
       paddingTop: "1.5rem",
     },
@@ -97,7 +100,7 @@ const useStyles = makeStyles((theme: Theme) =>
         fontSize: "1.4rem",
       },
       [theme.breakpoints.down(470)]: {
-        paddingRight: "1rem",
+        display: "none",
       },
     },
     arrowContainer: {
@@ -141,6 +144,15 @@ const useStyles = makeStyles((theme: Theme) =>
         display: "inline",
       },
     },
+
+    infoContainerMobile: {
+      display: 'none',
+      [theme.breakpoints.down(470)]: {
+        display: "flex",
+        flexDirection: 'column',
+        alignItems: 'center',
+      },
+    },
   })
 )
 export default function PanelSix() {
@@ -180,6 +192,20 @@ export default function PanelSix() {
             </div>
             <div className={classes.arrowContainer}>
               <img src={Arrow} alt="Arrow" className={classes.arrow} />
+            </div>
+          </div>
+          <div className={classes.infoContainerMobile}>
+            <div>
+              <div>July 1 &#8226; Blog</div>
+              <div>What Our Community <br/>Deserves &rarr;</div>
+            </div>
+            <div>
+              <div>July 1 &#8226; Blog</div>
+              <div>What Our Community <br/>Deserves &rarr;</div>
+            </div>
+            <div>
+              <div>July 1 &#8226; Blog</div>
+              <div>What Our Community <br/>Deserves &rarr;</div>
             </div>
           </div>
         </div>

@@ -81,9 +81,9 @@ const useStyles = makeStyles((theme: Theme) =>
       marginBottom: 0,
       marginLeft: "20rem",
       opacity: "62.5%",
-      width: "45rem",
+      maxWidth: "45rem",
       [theme.breakpoints.down(1500)]: {
-        width: "40rem",
+        width: "38rem",
       },
       [theme.breakpoints.down(1320)]: {
         marginLeft: "10rem",
