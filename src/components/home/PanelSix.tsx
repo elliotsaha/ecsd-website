@@ -1,9 +1,11 @@
-import React from "react"
+import React, { useEffect, useRef } from "react"
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles"
+import { useIntersection } from "react-use"
 import il7 from "../../img/illustrations/il7.svg"
 import Button from "@material-ui/core/Button"
 import ArrowForwardRoundedIcon from "@material-ui/icons/ArrowForwardRounded"
 import Arrow from "../../img/Arrow.svg"
+import { gsap } from "gsap"
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
@@ -150,7 +152,7 @@ const useStyles = makeStyles((theme: Theme) =>
       [theme.breakpoints.down(470)]: {
         display: "flex",
         flexDirection: "column",
-        alignItems: 'center',
+        alignItems: "center",
       },
     },
     infoTD: {
@@ -178,64 +180,113 @@ const useStyles = makeStyles((theme: Theme) =>
 )
 export default function PanelSix() {
   const classes = useStyles()
+
+  // Ref for intersection observer
+  const sectionRef5 = useRef(null)
+
+  const intersection = useIntersection(sectionRef5, {
+    root: null,
+    rootMargin: "0px",
+    threshold: 0.1,
+  })
+
+  useEffect(() => {
+    // Fade in animation when scroll in
+    const fadeIn = (element: any) => {
+      gsap.to(element, 1, {
+        opacity: 1,
+        y: -0,
+        ease: "power3.out",
+        stagger: {
+          amount: 0,
+        },
+      })
+    }
+
+    // Fade out animation when scroll out
+    const fadeOut = (element: any) => {
+      gsap.to(element, 1, {
+        opacity: 0,
+        y: -50,
+        ease: "power3.out",
+      })
+    }
+    intersection && intersection.intersectionRatio < 0.1
+      ? // Not Reached
+        fadeOut(".fadeIn5")
+      : fadeIn(".fadeIn5")
+  }, [intersection])
+
   return (
     <div className={classes.root}>
-      <div className={classes.topBody}>
-        <div className={classes.topContainer}>
-          <div className={classes.title}>Blog</div>
-          <div className={classes.bar} />
-        </div>
-      </div>
-
-      <div className={classes.content}>
-        <img src={il7} className={classes.image} />
-        <div className={classes.blogContainer}>
-          <div className={classes.infoContainer}>
-            <span className={classes.infoDate}>July 1 &#8226; Blog</span>
-            <div className={classes.infoTitle}>
-              What Our Community <div className={classes.spacer} />
-              Deserves
-            </div>
-            <div className={classes.arrowContainer}>
-              <img src={Arrow} alt="Arrow" />
-            </div>
-            <span className={classes.infoDate}>July 13 &#8226; Blog</span>
-            <div className={classes.infoTitle}>
-              Black Lives Matter <div className={classes.spacer} /> News
-            </div>
-            <div className={classes.arrowContainer}>
-              <img src={Arrow} alt="Arrow" />
-            </div>
-            <span className={classes.infoDate}>July 18 &#8226; Blog</span>
-            <div className={classes.infoTitle}>
-              Feminism Icons of the <div className={classes.spacer} />
-              Century
-            </div>
-            <div className={classes.arrowContainer}>
-              <img src={Arrow} alt="Arrow" className={classes.arrow} />
+      <div ref={sectionRef5}>
+        <div className="fadeIn5">
+          <div className={classes.topBody}>
+            <div className={classes.topContainer}>
+              <div className={classes.title}>Blog</div>
+              <div className={classes.bar} />
             </div>
           </div>
-          <div className={classes.infoContainerMobile}>
-            <div>
-              <div className={classes.infoTD}>
-                <div className={classes.dateMobile}>July 1 &#8226; Blog</div>
-                <div className={classes.titleMobile}>
-                  What Our Community <br />
-                  Deserves <span className={classes.arrowMobile}>&rarr;</span>
+
+          <div className={classes.content}>
+            <img src={il7} className={classes.image} />
+            <div className={classes.blogContainer}>
+              <div className={classes.infoContainer}>
+                <span className={classes.infoDate}>July 1 &#8226; Blog</span>
+                <div className={classes.infoTitle}>
+                  What Our Community <div className={classes.spacer} />
+                  Deserves
+                </div>
+                <div className={classes.arrowContainer}>
+                  <img src={Arrow} alt="Arrow" />
+                </div>
+                <span className={classes.infoDate}>July 13 &#8226; Blog</span>
+                <div className={classes.infoTitle}>
+                  Black Lives Matter <div className={classes.spacer} /> News
+                </div>
+                <div className={classes.arrowContainer}>
+                  <img src={Arrow} alt="Arrow" />
+                </div>
+                <span className={classes.infoDate}>July 18 &#8226; Blog</span>
+                <div className={classes.infoTitle}>
+                  Feminism Icons of the <div className={classes.spacer} />
+                  Century
+                </div>
+                <div className={classes.arrowContainer}>
+                  <img src={Arrow} alt="Arrow" className={classes.arrow} />
                 </div>
               </div>
-              <div className={classes.infoTD}>
-                <div className={classes.dateMobile}>July 13 &#8226; Blog</div>
-                <div className={classes.titleMobile}>
-                  Black Lives Matter <br />
-                  News <span className={classes.arrowMobile}>&rarr;</span>
-                </div>
-              </div>
-              <div className={classes.infoTD}>
-                <div className={classes.dateMobile}>July 18 &#8226; Blog</div>
-                <div className={classes.titleMobile}>
-                  Feminism Icons of the <br />
-                  Century <span className={classes.arrowMobile}>&rarr;</span>
+              <div className={classes.infoContainerMobile}>
+                <div>
+                  <div className={classes.infoTD}>
+                    <div className={classes.dateMobile}>
+                      July 1 &#8226; Blog
+                    </div>
+                    <div className={classes.titleMobile}>
+                      What Our Community <br />
+                      Deserves{" "}
+                      <span className={classes.arrowMobile}>&rarr;</span>
+                    </div>
+                  </div>
+                  <div className={classes.infoTD}>
+                    <div className={classes.dateMobile}>
+                      July 13 &#8226; Blog
+                    </div>
+                    <div className={classes.titleMobile}>
+                      Black Lives Matter <br />
+                      News <span className={classes.arrowMobile}>&rarr;</span>
+                    </div>
+                  </div>
+                  <div className={classes.infoTD}>
+                    <div className={classes.dateMobile}>
+                      July 18 &#8226; Blog
+                    </div>
+                    <div className={classes.titleMobile}>
+                      Feminism Icons of the <br />
+                      Century{" "}
+                      <span className={classes.arrowMobile}>&rarr;</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

@@ -1,9 +1,10 @@
-import React from "react"
+import React, { useEffect, useRef } from "react"
 import city from "../../img/Accomplishments/city.png"
 import home from "../../img/Accomplishments/home.png"
 import friends from "../../img/Accomplishments/friends.png"
 import council from "../../img/Accomplishments/council.png"
-
+import { useIntersection } from "react-use"
+import { gsap } from "gsap"
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles"
 import Button from "@material-ui/core/Button"
 
@@ -68,7 +69,7 @@ const useStyles = makeStyles((theme: Theme) =>
       [theme.breakpoints.down(981)]: {
         backgroundColor: "#333645",
       },
-      
+
       [theme.breakpoints.down(1300)]: {
         maxWidth: "30rem",
       },
@@ -154,35 +155,76 @@ const card = (img: string, title: string, description: string) => {
 }
 export default function PanelFive() {
   const classes = useStyles()
+
+  // Ref for intersection observer
+  const sectionRef4 = useRef(null)
+
+  const intersection = useIntersection(sectionRef4, {
+    root: null,
+    rootMargin: "0px",
+    threshold: 0.1,
+  })
+
+  useEffect(() => {
+    // Fade in animation when scroll in
+    const fadeIn = (element: any) => {
+      gsap.to(element, 1, {
+        opacity: 1,
+        y: -0,
+        ease: "power3.out",
+        stagger: {
+          amount: 0,
+        },
+      })
+    }
+
+    // Fade out animation when scroll out
+    const fadeOut = (element: any) => {
+      gsap.to(element, 1, {
+        opacity: 0,
+        y: -50,
+        ease: "power3.out",
+      })
+    }
+    intersection && intersection.intersectionRatio < 0.1
+      ? // Not Reached
+        fadeOut(".fadeIn4")
+      : fadeIn(".fadeIn4")
+  }, [intersection])
+
   return (
     <div className={classes.root}>
-      <div className={classes.title}>Accomplishments</div>
-      <div className={classes.bar} />
-      <br />
-      <div className={classes.cardGrid}>
-        {card(
-          friends,
-          "Youth Council",
-          "Member of City of Edmonton Youth Council since 2016, served as the Chair of Engagement and Outreach and the Vice Chair of Health and Wellness"
-        )}
-        {card(
-          council,
-          "Municipal Issues",
-          "Currently a Research and Policy Advisor with extensive grasp on municipal issues"
-        )}
-        {card(
-          city,
-          "ParityYEG",
-          "Currently serving as Vice Chair of Research for ParityYEG"
-        )}
-        {card(
-          home,
-          "Community",
-          "Currently serving on Prince Rupert Community League as Communications Lead"
-        )}
-      </div>
-      <div className={classes.buttonContainer}>
-        <Button className={classes.Button}>Read More</Button>
+      <div ref={sectionRef4}>
+        <div className="fadeIn4">
+          <div className={classes.title}>Accomplishments</div>
+          <div className={classes.bar} />
+          <br />
+          <div className={classes.cardGrid}>
+            {card(
+              friends,
+              "Youth Council",
+              "Member of City of Edmonton Youth Council since 2016, served as the Chair of Engagement and Outreach and the Vice Chair of Health and Wellness"
+            )}
+            {card(
+              council,
+              "Municipal Issues",
+              "Currently a Research and Policy Advisor with extensive grasp on municipal issues"
+            )}
+            {card(
+              city,
+              "ParityYEG",
+              "Currently serving as Vice Chair of Research for ParityYEG"
+            )}
+            {card(
+              home,
+              "Community",
+              "Currently serving on Prince Rupert Community League as Communications Lead"
+            )}
+          </div>
+          <div className={classes.buttonContainer}>
+            <Button className={classes.Button}>Read More</Button>
+          </div>
+        </div>
       </div>
     </div>
   )

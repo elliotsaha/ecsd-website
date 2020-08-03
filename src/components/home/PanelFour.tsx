@@ -1,22 +1,26 @@
-import React from "react"
+import React, { useEffect, useRef } from "react"
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles"
 import RajahMaggayColoured from "../../img/RajahMaggayColoured.png"
 import Button from "@material-ui/core/Button"
+import { useIntersection } from "react-use"
+import { gsap } from "gsap"
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
+    body: {
+      backgroundColor: "#242734",
+      [theme.breakpoints.down(981)]: {
+        backgroundColor: "#333645",
+      },
+    },
     root: {
       display: "flex",
       flexDirection: "row-reverse",
       alignItems: "space-around",
-      backgroundColor: "#242734",
       paddingTop: "4rem",
       overflow: "auto",
       position: "relative",
       paddingBottom: "2.5rem",
-      [theme.breakpoints.down(981)]: {
-        backgroundColor: "#333645",
-      },
       [theme.breakpoints.down(550)]: {
         display: "block",
         paddingTop: "2rem",
@@ -101,10 +105,6 @@ const useStyles = makeStyles((theme: Theme) =>
       },
     },
     buttonContainer: {
-      backgroundColor: "#242734",
-      [theme.breakpoints.down(981)]: {
-        backgroundColor: "#333645",
-      },
       paddingBottom: "3rem",
       textAlign: "center",
     },
@@ -113,33 +113,75 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export default function PanelFour() {
   const classes = useStyles()
+
+  // Ref for intersection observer
+  const sectionRef3 = useRef(null)
+
+  const intersection = useIntersection(sectionRef3, {
+    root: null,
+    rootMargin: "0px",
+    threshold: 0.1,
+  })
+
+  useEffect(() => {
+    // Fade in animation when scroll in
+    const fadeIn = (element: any) => {
+      gsap.to(element, 1, {
+        opacity: 1,
+        y: -0,
+        ease: "power3.out",
+        stagger: {
+          amount: 0,
+        },
+      })
+    }
+
+    // Fade out animation when scroll out
+    const fadeOut = (element: any) => {
+      gsap.to(element, 1, {
+        opacity: 0,
+        y: -50,
+        ease: "power3.out",
+      })
+    }
+    intersection && intersection.intersectionRatio < 0.1
+      ? // Not Reached
+        fadeOut(".fadeIn3")
+      : fadeIn(".fadeIn3")
+  }, [intersection])
+
   return (
-    <React.Fragment>
-      <div className={classes.root}>
-        <div className={classes.imgContainer}>
-          <img src={RajahMaggayColoured} className={classes.img} />
-        </div>
-        <div className={classes.text}>
-          <div className={classes.title}>About Me</div>
-          <div className={classes.bar} />
-          <div className={classes.para}>
-            <div>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
-              erat nunc. Lorem ipsum dolor sit amet, consectetur adipiscing
-              elit. Aenean et erat nunc. Lorem ipsum dolor sit amet, consectetur
-              adipiscing elit. Aenean et erat nunc. Lorem ipsum dolor sit amet,
-              consectetur adipiscing elit. Aenean et erat nunc. Lorem ipsum
-              dolor sit amet, consectetur adipiscing elit. Aenean et erat nunc.
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
-              erat nunc. Lorem ipsum dolor sit amet, consectetur adipiscing
-              elit. Aenean et erat nunc. Lorem ipsum dolor sit amet, consectetur
+    <div className={classes.body}>
+      <div ref={sectionRef3}>
+        <div className="fadeIn3">
+          <div className={classes.root}>
+            <div className={classes.imgContainer}>
+              <img src={RajahMaggayColoured} className={classes.img} />
             </div>
+            <div className={classes.text}>
+              <div className={classes.title}>About Me</div>
+              <div className={classes.bar} />
+              <div className={classes.para}>
+                <div>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Aenean et erat nunc. Lorem ipsum dolor sit amet, consectetur
+                  adipiscing elit. Aenean et erat nunc. Lorem ipsum dolor sit
+                  amet, consectetur adipiscing elit. Aenean et erat nunc. Lorem
+                  ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
+                  erat nunc. Lorem ipsum dolor sit amet, consectetur adipiscing
+                  elit. Aenean et erat nunc. Lorem ipsum dolor sit amet,
+                  consectetur adipiscing elit. Aenean et erat nunc. Lorem ipsum
+                  dolor sit amet, consectetur adipiscing elit. Aenean et erat
+                  nunc. Lorem ipsum dolor sit amet, consectetur
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className={classes.buttonContainer}>
+            <Button className={classes.Button}>Read More</Button>
           </div>
         </div>
       </div>
-      <div className={classes.buttonContainer}>
-        <Button className={classes.Button}>Read More</Button>
-      </div>
-    </React.Fragment>
+    </div>
   )
 }

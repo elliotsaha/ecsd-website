@@ -1,4 +1,6 @@
-import React from "react"
+import React, { useEffect, useRef } from "react"
+import { useIntersection } from "react-use"
+import { gsap } from "gsap"
 import il1 from "../../img/illustrations/il1.png"
 import il2 from "../../img/illustrations/il2.png"
 import il3 from "../../img/illustrations/il3.png"
@@ -14,7 +16,7 @@ const useStyles = makeStyles((theme: Theme) =>
       backgroundColor: "#333645",
       paddingTop: "3rem",
       overflow: "auto",
-      position: 'relative',
+      position: "relative",
       [theme.breakpoints.down(981)]: {
         backgroundColor: "#242734",
       },
@@ -112,7 +114,7 @@ const useStyles = makeStyles((theme: Theme) =>
       },
     },
     buttonContainer: {
-      marginTop: '1rem',
+      marginTop: "1rem",
       marginBottom: "3rem",
       textAlign: "center",
     },
@@ -132,45 +134,85 @@ const card = (img: string, title: string, description: string) => {
 }
 export default function PanelThree() {
   const classes = useStyles()
+  // Ref for intersection observer
+  const sectionRef2 = useRef(null)
+
+  const intersection = useIntersection(sectionRef2, {
+    root: null,
+    rootMargin: "0px",
+    threshold: 0.1,
+  })
+
+  useEffect(() => {
+    // Fade in animation when scroll in
+    const fadeIn = (element: any) => {
+      gsap.to(element, 1, {
+        opacity: 1,
+        y: -0,
+        ease: "power3.out",
+        stagger: {
+          amount: 0,
+        },
+      })
+    }
+
+    // Fade out animation when scroll out
+    const fadeOut = (element: any) => {
+      gsap.to(element, 1, {
+        opacity: 0,
+        y: -50,
+        ease: "power3.out",
+      })
+    }
+    intersection && intersection.intersectionRatio < 0.1
+      ? // Not Reached
+        fadeOut(".fadeIn2")
+      : fadeIn(".fadeIn2")
+  }, [intersection])
+
   return (
     <div className={classes.root}>
-      <div className={classes.title}>Initiatives</div>
-      <div className={classes.bar} />
-      <br />
-      <div className={classes.cardGrid}>
-        {card(
-          il1,
-          "Safety For All",
-          "Each person in this city deserves to move through their communities safely. We need to create more safe spaces"
-        )}
-        {card(
-          il2,
-          "The Way We Use Our Space",
-          "Areas I would also like to build on centre around chronic homelessness and how we use our public spaces."
-        )}
-        {card(
-          il3,
-          "Civic Participation",
-          "We should make civic engagement more accessible and support constituents who have never participated in local government before."
-        )}
-        {card(
-          il4,
-          "Social Action",
-          "We should always think about the social equity impacts that these decisions will have on people of all backgrounds."
-        )}
-        {card(
-          il5,
-          "Enviromental Stewardship",
-          "it will be a priority for us to make sure our infrastructure is able to withstand any extreme weather conditions."
-        )}
-        {card(
-          il6,
-          "Regional Prosperity",
-          "With the economic impacts of COVID-19, we need to create a shift to additional support for local businesses."
-        )}
-      </div>
-      <div className={classes.buttonContainer}>
-        <Button className={classes.Button}>Read More</Button>
+      <div ref={sectionRef2}>
+        <div className="fadeIn2">
+          <div className={classes.title}>Initiatives</div>
+          <div className={classes.bar} />
+          <br />
+          <div className={classes.cardGrid}>
+            {card(
+              il1,
+              "Safety For All",
+              "Each person in this city deserves to move through their communities safely. We need to create more safe spaces"
+            )}
+            {card(
+              il2,
+              "The Way We Use Our Space",
+              "Areas I would also like to build on centre around chronic homelessness and how we use our public spaces."
+            )}
+            {card(
+              il3,
+              "Civic Participation",
+              "We should make civic engagement more accessible and support constituents who have never participated in local government before."
+            )}
+            {card(
+              il4,
+              "Social Action",
+              "We should always think about the social equity impacts that these decisions will have on people of all backgrounds."
+            )}
+            {card(
+              il5,
+              "Enviromental Stewardship",
+              "it will be a priority for us to make sure our infrastructure is able to withstand any extreme weather conditions."
+            )}
+            {card(
+              il6,
+              "Regional Prosperity",
+              "With the economic impacts of COVID-19, we need to create a shift to additional support for local businesses."
+            )}
+          </div>
+          <div className={classes.buttonContainer}>
+            <Button className={classes.Button}>Read More</Button>
+          </div>
+        </div>
       </div>
     </div>
   )
