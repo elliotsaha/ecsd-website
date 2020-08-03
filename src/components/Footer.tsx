@@ -14,11 +14,8 @@ const useStyles = makeStyles((theme: Theme) =>
       paddingTop: "2.5rem",
       paddingBottom: "2rem",
       overflow: "hidden",
-      backgroundColor: "#242734",
+      backgroundColor: "#1A1D29",
       position: "relative",
-      [theme.breakpoints.down(981)]: {
-        backgroundColor: "#333645",
-      },
     },
     iconContainer: {
       display: "flex",

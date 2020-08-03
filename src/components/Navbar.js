@@ -1,17 +1,12 @@
 import React, { useEffect, useState } from "react"
-import {
-  createStyles,
-  makeStyles,
-  Theme,
-  useTheme,
-  withStyles,
-} from "@material-ui/core/styles"
+import { createStyles, makeStyles, useTheme } from "@material-ui/core/styles"
 import AppBar from "@material-ui/core/AppBar"
 import Toolbar from "@material-ui/core/Toolbar"
 import { Link } from "gatsby"
 import Hidden from "@material-ui/core/Hidden"
 import Drawer from "@material-ui/core/Drawer"
 import CloseIcon from "@material-ui/icons/Close"
+import Button from "@material-ui/core/Button"
 // Drawer Icons
 import BookRoundedIcon from "@material-ui/icons/BookRounded"
 import InfoRoundedIcon from "@material-ui/icons/InfoRounded"
@@ -102,6 +97,30 @@ const useStyles = makeStyles(theme =>
         border: 0,
       },
     },
+    inactiveContact: {
+      paddingTop: "0.7rem",
+      position: "absolute",
+      right: "0",
+      textDecoration: "none",
+      paddingRight: "2.5rem",
+      border: 0,
+      boxShadow: "none",
+      fontFamily: "Gilroy, sans-serif",
+      fontWeight: 800,
+      color: "white",
+      "&:visited": {
+        border: 0,
+      },
+      "&:hover": {
+        border: 0,
+      },
+      "&:link": {
+        border: 0,
+      },
+      "&:active": {
+        border: 0,
+      },
+    },
     nameContainer: {
       paddingTop: "1rem",
       position: "absolute",
@@ -111,9 +130,9 @@ const useStyles = makeStyles(theme =>
       fontSize: "1.2rem",
     },
     active: {
+      background: "linear-gradient(to right, #65ACED, #7A8DFF) no-repeat",
       opacity: "100%",
       paddingBottom: "0.5rem",
-      background: "linear-gradient(to right, #65ACED, #7A8DFF) no-repeat",
       backgroundSize: "30% 3px",
       backgroundPosition: "bottom",
     },
@@ -144,8 +163,8 @@ const useStyles = makeStyles(theme =>
       },
       color: "white",
       marginLeft: "0.25rem",
-      marginTop: '0.3rem',
-      marginBottom: '0.3rem',
+      marginTop: "0.3rem",
+      marginBottom: "0.3rem",
     },
     sideBarActive: {},
     sideBarInactive: {
@@ -171,7 +190,20 @@ const useStyles = makeStyles(theme =>
       right: 0,
       paddingTop: "0.25rem",
       marginRight: "0.5rem",
-      marginTop: '0.3rem',
+      marginTop: "0.3rem",
+    },
+    contactButton: {
+      background: "linear-gradient(to right, #65ACED, #7A8DFF) no-repeat",
+      textTransform: 'none',
+      textDecoration: "none",
+      fontSize: "1rem",
+      fontWeight: 700,
+      color: 'white',
+      border: 0,
+      boxShadow: "none",
+      fontFamily: "Gilroy, sans-serif",
+      paddingRight: "1rem",
+      paddingLeft: '1rem',
     },
     socialIcons: {
       paddingLeft: "2rem",
@@ -376,6 +408,9 @@ export default function Navbar() {
               Initiatives
             </Link>
           </div>
+          <Link to="/contact" className={classes.inactiveContact}>
+            <Button className={classes.contactButton}>Contact</Button>
+          </Link>
         </div>
       </AppBar>
 

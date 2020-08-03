@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
-import { Element } from 'react-scroll';
 import { useIntersection } from 'react-use';
 import { gsap } from 'gsap';
 import il8 from '../../img/illustrations/il8.png'
@@ -211,8 +210,7 @@ export default function PanelSeven() {
   }, [intersection]);
 
   return (
-    // Element that is scrolled to on button press in panel one
-    <Element name="Contact">
+    <div>
       {/*Defining Ref for intersection observer*/}
       <div ref={sectionRef6} className={classes.root}>
         <div className={classes.title}>
@@ -310,6 +308,7 @@ export default function PanelSeven() {
           </div>
         </div>
       </div>
-    </Element>
+    </div>
+      
   );
 }

@@ -7,7 +7,7 @@ import { useIntersection } from "react-use"
 import { gsap } from "gsap"
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles"
 import Button from "@material-ui/core/Button"
-
+import { Link } from "gatsby"
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
@@ -123,16 +123,14 @@ const useStyles = makeStyles((theme: Theme) =>
     Button: {
       background:
         "linear-gradient(90deg, rgba(101,168,237,1) 0%, rgba(122,141,255,1) 100%)",
-      padding: "1rem",
-      paddingRight: "2rem",
-      paddingLeft: "2rem",
+      padding: "0.8rem",
       fontFamily: "Gilroy, sans-serif",
-      fontWeight: 800,
+      fontWeight: 700,
       textTransform: "none",
+      fontSize: "1rem",
       color: "white",
-      [theme.breakpoints.down(981)]: {
-        fontSize: "1rem",
-      },
+      paddingRight: "1.5rem",
+      paddingLeft: "1.5rem",
     },
     buttonContainer: {
       marginTop: "1rem",
@@ -222,7 +220,9 @@ export default function PanelFive() {
             )}
           </div>
           <div className={classes.buttonContainer}>
-            <Button className={classes.Button}>Read More</Button>
+            <Link to="/about">
+              <Button className={classes.Button}>Read More</Button>
+            </Link>
           </div>
         </div>
       </div>

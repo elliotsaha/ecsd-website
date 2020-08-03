@@ -1,20 +1,19 @@
 import React from "react"
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles"
 import Button from "@material-ui/core/Button"
-import { scroller } from "react-scroll"
 import Typist from "react-typist"
 import "react-typist/dist/Typist.css"
 import Img from "gatsby-image"
 // Images
-import Instagram from '../../img/instagram.svg'
-import Twitter from '../../img/twitter.svg'
-import LinkedIn from '../../img/linkedIn.svg'
-import RajahMaggay from '../../img/RajahMaggayGrey.png'
-
+import Instagram from "../../img/instagram.svg"
+import Twitter from "../../img/twitter.svg"
+import LinkedIn from "../../img/linkedIn.svg"
+import RajahMaggay from "../../img/RajahMaggayGrey.png"
+import { Link } from "gatsby"
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     Panel: {
-      position: 'relative',
+      position: "relative",
       backgroundColor: "#333645",
       height: "100vh",
       [theme.breakpoints.down(981)]: {
@@ -40,8 +39,8 @@ const useStyles = makeStyles((theme: Theme) =>
       },
       [theme.breakpoints.down(500)]: {
         transform: "translateY(30%)",
-        lineHeight: '4rem',
-        paddingLeft: '1rem'
+        lineHeight: "4rem",
+        paddingLeft: "1rem",
       },
     },
     name: {
@@ -53,10 +52,10 @@ const useStyles = makeStyles((theme: Theme) =>
         fontSize: "6rem",
       },
       [theme.breakpoints.down(981)]: {
-        fontSize: '5rem',
+        fontSize: "5rem",
       },
       [theme.breakpoints.down(500)]: {
-        fontSize: '4rem',
+        fontSize: "4rem",
       },
     },
     bar: {
@@ -68,7 +67,7 @@ const useStyles = makeStyles((theme: Theme) =>
       marginLeft: "0.5rem",
       [theme.breakpoints.down(500)]: {
         marginLeft: 0,
-        width: '5rem'
+        width: "5rem",
       },
     },
     imageContainer: {
@@ -95,7 +94,7 @@ const useStyles = makeStyles((theme: Theme) =>
       marginTop: "6rem",
       marginLeft: "0.5rem",
       [theme.breakpoints.down(981)]: {
-        display: 'none',
+        display: "none",
       },
     },
     icon: {
@@ -140,8 +139,8 @@ const useStyles = makeStyles((theme: Theme) =>
         lineHeight: "2.6rem",
       },
       [theme.breakpoints.down(981)]: {
-        fontSize: '2.5rem',
-      }
+        fontSize: "2.5rem",
+      },
     },
     runningSub: {
       fontFamily: "Gilroy, sans-serif",
@@ -157,30 +156,28 @@ const useStyles = makeStyles((theme: Theme) =>
       },
       [theme.breakpoints.down(981)]: {
         lineHeight: "2.5rem",
-        fontSize: '2rem',
-      }
+        fontSize: "2rem",
+      },
     },
     runningButton: {
       background:
         "linear-gradient(90deg, rgba(101,168,237,1) 0%, rgba(122,141,255,1) 100%)",
       padding: "1rem",
       fontFamily: "Gilroy, sans-serif",
-      fontWeight: 800,
+      fontWeight: 700,
       textTransform: "none",
+      fontSize: "1rem",
       color: "white",
-      [theme.breakpoints.down(981)]: {
-        fontSize: '1rem',
-      }
     },
     mobileSecoundPanel: {
-      display: 'none',
+      display: "none",
       [theme.breakpoints.down(981)]: {
-        display: 'block',
-        paddingTop: '4rem',
-        paddingBottom: '4rem',
-        backgroundColor: '#242734',
-        minHeight: '25vh',
-        padding: '2rem',
+        display: "block",
+        paddingTop: "4rem",
+        paddingBottom: "4rem",
+        backgroundColor: "#242734",
+        minHeight: "25vh",
+        padding: "2rem",
       },
     },
   })
@@ -193,8 +190,18 @@ export default function PanelOne() {
       <div className={classes.Panel}>
         <div className={classes.nameContainer}>
           <div className={classes.name}>
-            Rajah <br />
-            Maggay.
+            <Typist
+              cursor={{
+                show: true,
+                blink: true,
+                element: "|",
+                hideWhenDone: true,
+                hideWhenDoneDelay: 5,
+              }}
+            >
+              Rajah <br />
+              Maggay.
+            </Typist>
           </div>
           <div className={classes.bar} />
           <div className={classes.socials}>
@@ -225,11 +232,7 @@ export default function PanelOne() {
           </div>
         </div>
         <div className={classes.imageContainer}>
-          <img
-            src={RajahMaggay}
-            alt="Rajah Maggay"
-            className={classes.image}
-          />
+          <img src={RajahMaggay} alt="Rajah Maggay" className={classes.image} />
           <div className={classes.messageText}>
             <div className={classes.runningText}>
               I’m Running For <br />
@@ -241,7 +244,9 @@ export default function PanelOne() {
               consectetur adipiscing elit. <br />
               Aenean et erat nunc.{" "}
             </div>
-            <Button className={classes.runningButton}>Send Message</Button>
+            <Link to="/contact">
+              <Button className={classes.runningButton}>Send Message</Button>
+            </Link>
           </div>
         </div>
       </div>
@@ -253,7 +258,9 @@ export default function PanelOne() {
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
           erat nunc.{" "}
         </div>
-        <Button className={classes.runningButton}>Send Message</Button>
+        <Link to="/contact">
+          <Button className={classes.runningButton}>Send Message</Button>
+        </Link>
       </div>
     </div>
   )
