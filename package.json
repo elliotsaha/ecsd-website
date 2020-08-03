@@ -44,6 +44,7 @@
     "react-scroll": "^1.8.0",
     "react-typist": "^2.0.5",
     "react-typography": "^0.16.19",
+    "react-use": "^15.3.3",
     "typeface-merriweather": "0.0.72",
     "typeface-montserrat": "0.0.75",
     "typography": "^0.16.19",

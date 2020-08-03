@@ -5,6 +5,7 @@ import PanelThree from '../components/home/PanelThree'
 import PanelFour from '../components/home/PanelFour'
 import PanelFive from '../components/home/PanelFive'
 import PanelSix from '../components/home/PanelSix'
+import PanelSeven from '../components/home/PanelSeven'
 import SEO from "../components/seo"
 import Layout from "../components/Layout"
 export default function index() {
@@ -17,6 +18,7 @@ export default function index() {
         <PanelFour />
         <PanelFive />
         <PanelSix />
+        <PanelSeven />
     </Layout>
   )
 }
