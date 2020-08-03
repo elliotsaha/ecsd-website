@@ -1,5 +1,6 @@
 import React from "react"
 import Navbar from "./Navbar"
+import Footer from "./Footer"
 import { Helmet } from "react-helmet"
 
 export default function Layout({ children }) {
@@ -16,8 +17,8 @@ export default function Layout({ children }) {
           rel="stylesheet"
         />
       </Helmet>
-
-      <main>{children}</main>
+      <main>{children}</main> 
+      <Footer />
     </React.Fragment>
   )
 }
