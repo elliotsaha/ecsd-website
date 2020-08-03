@@ -82,7 +82,7 @@ export default function PanelEight() {
         y: -0,
         ease: "power3.out",
         stagger: {
-          amount: 0.5,
+          amount: 0,
         },
       })
     }
@@ -91,7 +91,7 @@ export default function PanelEight() {
     const fadeOut = (element: any) => {
       gsap.to(element, 1, {
         opacity: 0,
-        y: -20,
+        y: -50,
         ease: "power3.out",
       })
     }

@@ -146,12 +146,33 @@ const useStyles = makeStyles((theme: Theme) =>
     },
 
     infoContainerMobile: {
-      display: 'none',
+      display: "none",
       [theme.breakpoints.down(470)]: {
         display: "flex",
-        flexDirection: 'column',
+        flexDirection: "column",
         alignItems: 'center',
       },
+    },
+    infoTD: {
+      marginBottom: "3rem",
+    },
+    titleMobile: {
+      color: "white",
+      fontFamily: "Gilroy, sans-serif",
+      fontWeight: "bolder",
+      fontSize: "1.7rem",
+      lineHeight: "2rem",
+    },
+    dateMobile: {
+      color: "#9D9D9D",
+      fontFamily: "Gilroy, sans-serif",
+      fontSize: "1.2rem",
+    },
+    arrowMobile: {
+      background:
+        "linear-gradient(90deg, rgba(101,168,237,1) 0%, rgba(122,141,255,1) 100%)",
+      "-webkit-background-clip": "text",
+      "-webkit-text-fill-color": "transparent",
     },
   })
 )
@@ -196,16 +217,27 @@ export default function PanelSix() {
           </div>
           <div className={classes.infoContainerMobile}>
             <div>
-              <div>July 1 &#8226; Blog</div>
-              <div>What Our Community <br/>Deserves &rarr;</div>
-            </div>
-            <div>
-              <div>July 1 &#8226; Blog</div>
-              <div>What Our Community <br/>Deserves &rarr;</div>
-            </div>
-            <div>
-              <div>July 1 &#8226; Blog</div>
-              <div>What Our Community <br/>Deserves &rarr;</div>
+              <div className={classes.infoTD}>
+                <div className={classes.dateMobile}>July 1 &#8226; Blog</div>
+                <div className={classes.titleMobile}>
+                  What Our Community <br />
+                  Deserves <span className={classes.arrowMobile}>&rarr;</span>
+                </div>
+              </div>
+              <div className={classes.infoTD}>
+                <div className={classes.dateMobile}>July 13 &#8226; Blog</div>
+                <div className={classes.titleMobile}>
+                  Black Lives Matter <br />
+                  News <span className={classes.arrowMobile}>&rarr;</span>
+                </div>
+              </div>
+              <div className={classes.infoTD}>
+                <div className={classes.dateMobile}>July 18 &#8226; Blog</div>
+                <div className={classes.titleMobile}>
+                  Feminism Icons of the <br />
+                  Century <span className={classes.arrowMobile}>&rarr;</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
