@@ -83,6 +83,7 @@ const useStyles = makeStyles((theme: Theme) =>
       },
     },
     img: {
+      width: '100%',
       display: "block",
       marginTop: "auto",
       marginBottom: "auto",

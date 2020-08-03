@@ -4,6 +4,7 @@ import Button from "@material-ui/core/Button"
 import Typist from "react-typist"
 import "react-typist/dist/Typist.css"
 import Img from "gatsby-image"
+import { Tween } from "react-gsap"
 // Images
 import Instagram from "../../img/instagram.svg"
 import Twitter from "../../img/twitter.svg"
@@ -204,50 +205,82 @@ export default function PanelOne() {
             </Typist>
           </div>
           <div className={classes.bar} />
+
           <div className={classes.socials}>
-            <a
-              href="https://www.linkedin.com/in/rajahmaggay/"
-              rel="noopener noreferrer"
-              target="_blank"
-              className={classes.icon}
+            <Tween
+              from={{ x: "500px", opacity: 0 }}
+              duration={1.5}
+              stagger={0.15}
+              ease="back.out(0.1)"
             >
-              <img src={LinkedIn} alt="Linked In" />
-            </a>
-            <a
-              href="https://twitter.com/RajahMaggay"
-              rel="noopener noreferrer"
-              target="_blank"
-              className={classes.icon}
-            >
-              <img src={Twitter} alt="Twitter" />
-            </a>
-            <a
-              href="https://www.instagram.com/rajahmaggay/"
-              rel="noopener noreferrer"
-              target="_blank"
-              className={classes.icon}
-            >
-              <img src={Instagram} alt="Instagram" />
-            </a>
+              <div style={{display: 'inline-block'}}>
+                <a
+                  href="https://www.linkedin.com/in/rajahmaggay/"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  className={classes.icon}
+                >
+                  <img src={LinkedIn} alt="Linked In" />
+                </a>
+              </div>
+              <div style={{display: 'inline-block'}}>
+                <a
+                  href="https://twitter.com/RajahMaggay"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  className={classes.icon}
+                >
+                  <img src={Twitter} alt="Twitter" />
+                </a>
+              </div>
+              <div style={{display: 'inline-block'}}>
+                <a
+                  href="https://www.instagram.com/rajahmaggay/"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  className={classes.icon}
+                >
+                  <img src={Instagram} alt="Instagram" />
+                </a>
+              </div>
+            </Tween>
           </div>
         </div>
+
         <div className={classes.imageContainer}>
-          <img src={RajahMaggay} alt="Rajah Maggay" className={classes.image} />
-          <div className={classes.messageText}>
-            <div className={classes.runningText}>
-              I’m Running For <br />
-              Edmonton City <br />
-              Council.
+          <Tween
+            from={{ x: "-500px", opacity: 0 }}
+            duration={2.5}
+            ease="back.out(0.1)"
+          >
+            <img
+              src={RajahMaggay}
+              alt="Rajah Maggay"
+              className={classes.image}
+            />
+          </Tween>
+
+          <Tween
+            from={{ x: "500px", opacity: 0 }}
+            duration={1.5}
+            ease="back.out(0.1)"
+          >
+            <div className={classes.messageText}>
+              <div className={classes.runningText}>
+                I’m Running For <br />
+                Edmonton City <br />
+                Council.
+              </div>
+              <div className={classes.runningSub}>
+                Lorem ipsum dolor sit amet, <br />
+                consectetur adipiscing elit. <br />
+                Aenean et erat nunc.{" "}
+              </div>
+              <Link to="/contact">
+                <Button className={classes.runningButton}>Send Message</Button>
+              </Link>
             </div>
-            <div className={classes.runningSub}>
-              Lorem ipsum dolor sit amet, <br />
-              consectetur adipiscing elit. <br />
-              Aenean et erat nunc.{" "}
-            </div>
-            <Link to="/contact">
-              <Button className={classes.runningButton}>Send Message</Button>
-            </Link>
-          </div>
+          </Tween>
         </div>
       </div>
       <div className={classes.mobileSecoundPanel}>

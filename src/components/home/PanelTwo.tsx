@@ -2,6 +2,7 @@ import React, { useRef, useEffect } from "react"
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles"
 import { useIntersection } from "react-use"
 import { gsap } from "gsap"
+import { Tween } from "react-gsap"
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -91,6 +92,7 @@ export default function PanelTwo() {
           <div className={classes.bar} />
           <br />
           <div className={classes.para}>
+            
             As a collective, we should create a unique community-based identity
             that is fortified in collaboration and the equitable treatment of
             all citizens.
