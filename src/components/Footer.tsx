@@ -142,7 +142,7 @@ export default function PanelEight() {
         <div className={classes.copyright}>
           {/*Copy right Notice*/}
           <span>
-            Copyright 2019-{new Date().getFullYear()} Heril Saha. All rights
+            Copyright {new Date().getFullYear()} Rajah Maggay. All rights
             reserved.
           </span>
         </div>
