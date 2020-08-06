@@ -77,13 +77,13 @@ const useStyles = makeStyles((theme: Theme) =>
       alignItems: "flex-end",
     },
     image: {
-      visibility: 'hidden',
+      visibility: "hidden",
       display: "block",
-      position: 'absolute',
-      right: '500px',
+      position: "absolute",
+      right: "3000px",
       marginBottom: 0,
       marginLeft: "20rem",
-      opacity: "62.5%",
+      opacity: 0,
       width: "80vh",
       [theme.breakpoints.down(1320)]: {
         marginLeft: "10rem",
@@ -94,9 +94,13 @@ const useStyles = makeStyles((theme: Theme) =>
         width: "30rem",
       },
     },
+    socialInner: {
+      display: 'inline-block',
+      marginLeft: '6rem',
+      opacity: 0,
+    },
     socials: {
-      marginTop: "6rem",
-      marginLeft: "0.5rem",
+      marginTop: "4rem",
       [theme.breakpoints.down(981)]: {
         display: "none",
       },
@@ -129,7 +133,8 @@ const useStyles = makeStyles((theme: Theme) =>
         right: "1rem",
       },
       marginRight: "3rem",
-      top: "50%",
+      top: "300%",
+      opacity: 0,
       transform: "translateY(-40%)",
     },
     runningText: {
@@ -211,12 +216,12 @@ export default function PanelOne() {
 
           <div className={classes.socials}>
             <Tween
-              from={{ x: "500px", opacity: 0 }}
-              duration={1.5}
-              stagger={0.15}
-              ease="back.out(0.1)"
+              to={{ opacity: 1, marginLeft: 0 }}
+              duration={1}
+              stagger={0.5}
+              ease="back.out(0.3)"
             >
-              <div style={{display: 'inline-block'}}>
+              <div className={classes.socialInner}>
                 <a
                   href="https://www.linkedin.com/in/rajahmaggay/"
                   rel="noopener noreferrer"
@@ -226,7 +231,7 @@ export default function PanelOne() {
                   <img src={LinkedIn} alt="Linked In" />
                 </a>
               </div>
-              <div style={{display: 'inline-block'}}>
+              <div className={classes.socialInner}>
                 <a
                   href="https://twitter.com/RajahMaggay"
                   rel="noopener noreferrer"
@@ -236,7 +241,7 @@ export default function PanelOne() {
                   <img src={Twitter} alt="Twitter" />
                 </a>
               </div>
-              <div style={{display: 'inline-block'}}>
+              <div className={classes.socialInner}>
                 <a
                   href="https://www.instagram.com/rajahmaggay/"
                   rel="noopener noreferrer"
@@ -252,8 +257,13 @@ export default function PanelOne() {
 
         <div className={classes.imageContainer}>
           <Tween
-            to={{opacity: 1, x: '500px', position: 'relative', visibility: 'visible'}}
-            duration={2.5}
+            to={{
+              opacity: 0.625,
+              x: "3000px",
+              position: "relative",
+              visibility: "visible",
+            }}
+            duration={2}
             ease="back.out(0.1)"
           >
             <img
@@ -262,11 +272,13 @@ export default function PanelOne() {
               className={classes.image}
             />
           </Tween>
-
           <Tween
-            from={{ x: "500px", opacity: 0 }}
-            duration={1.5}
-            ease="back.out(0.1)"
+            to={{
+              opacity: 1,
+              top: "50%",
+            }}
+            duration={1.8}
+            ease="back.out(0.3)"
           >
             <div className={classes.messageText}>
               <div className={classes.runningText}>
