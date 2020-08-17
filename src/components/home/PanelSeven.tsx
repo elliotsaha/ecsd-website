@@ -69,6 +69,41 @@ const useStyles = makeStyles((theme: Theme) =>
         },
       },
     },
+    textFieldError: {
+      paddingBottom: '1.5rem',
+      display: 'block',
+      '& label.Mui-focused': {
+        color: '#7A8DFF',
+        fontFamily: 'Gilroy, sans-serif',
+        fontWeight: 'bold',
+      },
+      '& label': {
+        color: '#66AAEE',
+        fontFamily: 'Gilroy, sans-serif',
+        fontWeight: 'bold',
+      },
+      '& .MuiInput-underline:after': {
+        borderBottomColor: '#66AAEE',
+      },
+      '& .MuiOutlinedInput-root': {
+        width: '29rem',
+        [theme.breakpoints.down(600)]: {
+          width: '20rem',
+        },
+        '& fieldset': {
+          borderColor: '#66AAEE',
+          borderWidth: '0.2rem',
+        },
+        '&:focus fieldset': {
+          borderColor: '#66AAEE',
+          borderWidth: '0.2rem',
+        },
+        '&.Mui-focused fieldset': {
+          borderColor: '#7A8DFF',
+          borderWidth: '0.2rem',
+        },
+      },
+    },
     helperText: {
       fontFamily: 'Gilroy, sans-serif',
       fontWeight: 'bold',
@@ -241,7 +276,7 @@ export default function PanelSeven() {
                 FormHelperTextProps={{
                   className: classes.helperText,
                 }}
-                className={classes.textField}
+                className={isNameError ? classes.textFieldError : classes.textField}
                 name="Name"
                 label="Name"
                 value={name}
@@ -261,7 +296,7 @@ export default function PanelSeven() {
                 FormHelperTextProps={{
                   className: classes.helperText,
                 }}
-                className={classes.textField}
+                className={isEmailError ? classes.textFieldError : classes.textField}
                 name="Email"
                 label="Email"
                 value={email}
@@ -282,7 +317,7 @@ export default function PanelSeven() {
                 }}
                 multiline
                 rows={10}
-                className={classes.textField}
+                className={isParagraphError ? classes.textFieldError : classes.textField}
                 name="Message"
                 label="Message"
                 value={paragraph}
