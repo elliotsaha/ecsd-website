@@ -59,7 +59,7 @@ const useStyles = makeStyles((theme: Theme) =>
           borderColor: '#66AAEE',
           borderWidth: '0.2rem',
         },
-        '&:focus fieldset': {
+        '&:hover fieldset': {
           borderColor: '#66AAEE',
           borderWidth: '0.2rem',
         },
