@@ -12,6 +12,7 @@ const useStyles = makeStyles((theme: Theme) =>
       textAlign: "center",
       paddingTop: "3rem",
       paddingBottom: "6rem",
+      zIndex: 20,
       [theme.breakpoints.down(981)]: {
         backgroundColor: "#333645",
       },

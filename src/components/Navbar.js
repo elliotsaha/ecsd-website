@@ -130,7 +130,7 @@ const useStyles = makeStyles(theme =>
       fontSize: "1.2rem",
     },
     active: {
-      background: "linear-gradient(to right, #65ACED, #7A8DFF) no-repeat",
+      background: "linear-gradient(to right, #FF9B21, #E87613) no-repeat",
       opacity: "100%",
       paddingBottom: "0.5rem",
       backgroundSize: "30% 3px",
@@ -193,7 +193,7 @@ const useStyles = makeStyles(theme =>
       marginTop: "0.3rem",
     },
     contactButton: {
-      background: "linear-gradient(to right, #65ACED, #7A8DFF) no-repeat",
+      background: "linear-gradient(to right, #FF9B21, #E87613) no-repeat",
       textTransform: 'none',
       textDecoration: "none",
       fontSize: "1rem",

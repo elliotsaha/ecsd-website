@@ -3,17 +3,19 @@ import { createStyles, makeStyles, Theme } from "@material-ui/core/styles"
 import Button from "@material-ui/core/Button"
 import Typist from "react-typist"
 import "react-typist/dist/Typist.css"
-import Img from "gatsby-image"
 import { Tween } from "react-gsap"
 // Images
 import Instagram from "../../img/instagram.svg"
 import Twitter from "../../img/twitter.svg"
 import LinkedIn from "../../img/linkedIn.svg"
-import RajahMaggay from "../../img/RajahMaggayGrey.png"
+import RajahMaggay from "../../img/RajahMaggayRed.png"
 import { Link } from "gatsby"
+import backgroundImage from "../../img/homepageBackground.png"
+
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     Panel: {
+      zIndex: 1,
       position: "relative",
       backgroundColor: "#333645",
       height: "100vh",
@@ -61,7 +63,7 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     bar: {
       background:
-        "linear-gradient(90deg, rgba(101,168,237,1) 0%, rgba(122,141,255,1) 100%)",
+        "linear-gradient(90deg, rgba(255, 155, 33, 1) 0%, rgba(232,118,19,1) 100%)",
       borderRadius: "0.3rem",
       height: "1rem",
       width: "8rem",
@@ -80,13 +82,13 @@ const useStyles = makeStyles((theme: Theme) =>
       visibility: "hidden",
       display: "block",
       position: "absolute",
-      right: "3000px",
+      bottom: "-100px",
       marginBottom: 0,
       marginLeft: "20rem",
       opacity: 0,
       width: "80vh",
       [theme.breakpoints.down(1320)]: {
-        marginLeft: "10rem",
+        marginLeft: "16.5rem",
       },
       [theme.breakpoints.down(981)]: {
         marginLeft: "auto",
@@ -95,8 +97,8 @@ const useStyles = makeStyles((theme: Theme) =>
       },
     },
     socialInner: {
-      display: 'inline-block',
-      marginLeft: '6rem',
+      display: "inline-block",
+      marginLeft: "6rem",
       opacity: 0,
     },
     socials: {
@@ -133,7 +135,7 @@ const useStyles = makeStyles((theme: Theme) =>
         right: "1rem",
       },
       marginRight: "3rem",
-      top: "300%",
+      top: "80%",
       opacity: 0,
       transform: "translateY(-40%)",
     },
@@ -170,13 +172,27 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     runningButton: {
       background:
-        "linear-gradient(90deg, rgba(101,168,237,1) 0%, rgba(122,141,255,1) 100%)",
+      "linear-gradient(90deg, rgba(255, 155, 33, 1) 0%, rgba(232,118,19,1) 100%)",
       padding: "1rem",
       fontFamily: "Gilroy, sans-serif",
       fontWeight: 700,
       textTransform: "none",
       fontSize: "1rem",
       color: "white",
+    },
+    container: {
+      overflow: "auto",
+    },
+    backgroundImage: {
+      position: "absolute",
+      width: "100%",
+      left: "50%",
+      top: "50%",
+      height: "100%",
+      objectFit: "cover",
+      transform: "translate(-50%, -50%)",
+      zIndex: -1,
+      filter: "brightness(40%)",
     },
     mobileSecoundPanel: {
       display: "none",
@@ -197,6 +213,9 @@ export default function PanelOne() {
   return (
     <div>
       <div className={classes.Panel}>
+      <div className={classes.container}>
+        <img src={backgroundImage} className={classes.backgroundImage} />
+      </div>
         <div className={classes.nameContainer}>
           <div className={classes.name}>
             <Typist
@@ -258,10 +277,11 @@ export default function PanelOne() {
         <div className={classes.imageContainer}>
           <Tween
             to={{
-              opacity: 0.625,
-              x: "3000px",
+              opacity: 1,
+              y: "-100px",
               position: "relative",
               visibility: "visible",
+              filter: 'brightness(60%)',
             }}
             duration={2}
             ease="back.out(0.1)"
