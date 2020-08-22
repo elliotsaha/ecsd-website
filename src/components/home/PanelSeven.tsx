@@ -3,14 +3,14 @@ import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import { useIntersection } from 'react-use';
 import { gsap } from 'gsap';
-import il8 from '../../img/illustrations/il8.png'
+import RajahMaggaySmiling from '../../img/RajahMaggaySmiling.png'
 import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       overflow: 'auto',
-      backgroundColor: "#333645",
+      background: "linear-gradient(30deg, #2C2E39, #16181E)",
       position: "relative",
       [theme.breakpoints.down(981)]: {
         backgroundColor: "#242734",
@@ -27,28 +27,30 @@ const useStyles = makeStyles((theme: Theme) =>
       paddingRight: '1.5rem',
       display: 'block',
       textTransform: 'none',
+      transition: 'all 1s ease',
       background:
-        "linear-gradient(90deg, rgba(101,168,237,1) 0%, rgba(122,141,255,1) 100%)",
+      "linear-gradient(90deg, rgba(255, 155, 33, 1) 0%, rgba(232,118,19,1) 100%)",
       '&:hover': {
+        transition: 'all 1s ease',
         background:
-        "linear-gradient(90deg, rgba(101,168,237,1) 0%, rgba(122,141,255,1) 65%)",
+        "linear-gradient(90deg, rgba(255, 155, 33, 1) 0%, rgba(232,118,19,1) 65%)",
       },
     },
     textField: {
       paddingBottom: '1.5rem',
       display: 'block',
       '& label.Mui-focused': {
-        color: '#7A8DFF',
+        color: '#FF9B21',
         fontFamily: 'Gilroy, sans-serif',
         fontWeight: 'bold',
       },
       '& label': {
-        color: '#66AAEE',
+        color: '#FF9B21',
         fontFamily: 'Gilroy, sans-serif',
         fontWeight: 'bold',
       },
       '& .MuiInput-underline:after': {
-        borderBottomColor: '#66AAEE',
+        borderBottomColor: '#FF9B21',
       },
       '& .MuiOutlinedInput-root': {
         width: '29rem',
@@ -56,15 +58,15 @@ const useStyles = makeStyles((theme: Theme) =>
           width: '20rem',
         },
         '& fieldset': {
-          borderColor: '#66AAEE',
+          borderColor: '#FF9B21',
           borderWidth: '0.2rem',
         },
         '&:hover fieldset': {
-          borderColor: '#66AAEE',
+          borderColor: '#FF9B21',
           borderWidth: '0.2rem',
         },
         '&.Mui-focused fieldset': {
-          borderColor: '#7A8DFF',
+          borderColor: '#E87613',
           borderWidth: '0.2rem',
         },
       },
@@ -73,17 +75,17 @@ const useStyles = makeStyles((theme: Theme) =>
       paddingBottom: '1.5rem',
       display: 'block',
       '& label.Mui-focused': {
-        color: '#7A8DFF',
+        color: '#FF9B21',
         fontFamily: 'Gilroy, sans-serif',
         fontWeight: 'bold',
       },
       '& label': {
-        color: '#66AAEE',
+        color: '#FF9B21',
         fontFamily: 'Gilroy, sans-serif',
         fontWeight: 'bold',
       },
       '& .MuiInput-underline:after': {
-        borderBottomColor: '#66AAEE',
+        borderBottomColor: '#FF9B21',
       },
       '& .MuiOutlinedInput-root': {
         width: '29rem',
@@ -91,15 +93,15 @@ const useStyles = makeStyles((theme: Theme) =>
           width: '20rem',
         },
         '& fieldset': {
-          borderColor: '#66AAEE',
+          borderColor: '#FF9B21',
           borderWidth: '0.2rem',
         },
         '&:focus fieldset': {
-          borderColor: '#66AAEE',
+          borderColor: '#FF9B21',
           borderWidth: '0.2rem',
         },
         '&.Mui-focused fieldset': {
-          borderColor: '#7A8DFF',
+          borderColor: '#FF9B21',
           borderWidth: '0.2rem',
         },
       },
@@ -132,19 +134,22 @@ const useStyles = makeStyles((theme: Theme) =>
       fontSize: "6rem",
     },
     image: {
-      width: '90%',
+      width: '30rem',
       [theme.breakpoints.down(1100)]: {
         display: 'none',
       },
     },
     imageContainer: {
-      margin: 'auto',
+      marginBottom: 'auto',
+      marginLeft: "auto",
+      marginRight: "auto",
+      marginTop: '2.6rem',
     },
     bar: {
       marginLeft: "auto",
       marginRight: "auto",
       background:
-        "linear-gradient(90deg, rgba(101,168,237,1) 0%, rgba(122,141,255,1) 100%)",
+      "linear-gradient(90deg, rgba(255, 155, 33, 1) 0%, rgba(232,118,19,1) 100%)",
       borderRadius: "0.3rem",
       height: "1rem",
       width: "8rem",
@@ -271,7 +276,7 @@ export default function PanelSeven() {
               {/*Text field for Name*/}
               <TextField
                 InputProps={{
-                  style: { fontFamily: 'Gilroy, sans-serif', fontWeight: 'bold', color: 'black' },
+                  style: { fontFamily: 'Gilroy, sans-serif', fontWeight: 'bold', color: 'white' },
                 }}
                 FormHelperTextProps={{
                   className: classes.helperText,
@@ -291,7 +296,7 @@ export default function PanelSeven() {
               {/*Text field for Email*/}
               <TextField
                 InputProps={{
-                  style: { fontFamily: 'Gilroy, sans-serif', fontWeight: 'bold', color: 'black' },
+                  style: { fontFamily: 'Gilroy, sans-serif', fontWeight: 'bold', color: 'white' },
                 }}
                 FormHelperTextProps={{
                   className: classes.helperText,
@@ -310,7 +315,7 @@ export default function PanelSeven() {
               {/*Text field for Message*/}
               <TextField
                 InputProps={{
-                  style: { fontFamily: 'Gilroy, sans-serif', fontWeight: 'bold', color: 'black' },
+                  style: { fontFamily: 'Gilroy, sans-serif', fontWeight: 'bold', color: 'white' },
                 }}
                 FormHelperTextProps={{
                   className: classes.helperText,
@@ -339,7 +344,7 @@ export default function PanelSeven() {
         </div>
         <div className={classes.imageContainer}>
           <div className="fadeIn6">
-            <img src={il8} alt="Illustration" className={classes.image} />
+            <img src={RajahMaggaySmiling} alt="Illustration" className={classes.image} />
           </div>
         </div>
       </div>

@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme: Theme) =>
       paddingTop: "2.5rem",
       paddingBottom: "2rem",
       overflow: "hidden",
-      backgroundColor: "#1A1D29",
+      background: "#16181E",
       position: "relative",
     },
     iconContainer: {
@@ -47,7 +47,7 @@ const useStyles = makeStyles((theme: Theme) =>
     copyright: {
       fontFamily: "Gilroy, sans-serif",
       fontWeight: "bolder",
-      background:  "linear-gradient(90deg, rgba(101,168,237,1) 0%, rgba(122,141,255,1) 100%)",
+      background:  "linear-gradient(90deg, rgba(255, 155, 33, 1) 0%, rgba(232,118,19,1) 100%)",
       '-webkit-background-clip': 'text',
       '-webkit-text-fill-color': 'transparent',
       textAlign: "center",

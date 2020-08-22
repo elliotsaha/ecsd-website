@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react"
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles"
 import { useIntersection } from "react-use"
-import il7 from "../../img/illustrations/il7.svg"
+import RajahMaggayBlue from "../../img/RajahMaggayBlue.png"
 import Button from "@material-ui/core/Button"
 import ArrowForwardRoundedIcon from "@material-ui/icons/ArrowForwardRounded"
 import Arrow from "../../img/Arrow.svg"
@@ -9,7 +9,7 @@ import { gsap } from "gsap"
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
-      backgroundColor: "#242734",
+      background: "linear-gradient(70deg, #2C2E39, #16181E)",
       paddingTop: "2rem",
       overflow: "auto",
       position: "relative",
@@ -26,11 +26,11 @@ const useStyles = makeStyles((theme: Theme) =>
       marginLeft: "auto",
       marginRight: "auto",
       background:
-        "linear-gradient(90deg, rgba(101,168,237,1) 0%, rgba(122,141,255,1) 100%)",
+      "linear-gradient(90deg, rgba(255, 155, 33, 1) 0%, rgba(232,118,19,1) 100%)",
       borderRadius: "0.3rem",
       height: "1rem",
       width: "8rem",
-      marginBottom: "1.5rem",
+      marginBottom: "2.6rem",
     },
     title: {
       lineHeight: "9rem",
@@ -96,7 +96,7 @@ const useStyles = makeStyles((theme: Theme) =>
       fontWeight: "bolder",
       fontSize: "1.7rem",
       lineHeight: "2rem",
-      paddingBottom: "1.5rem",
+      paddingBottom: "3rem",
       paddingTop: "1.5rem",
       [theme.breakpoints.down(700)]: {
         fontSize: "1.4rem",
@@ -122,7 +122,8 @@ const useStyles = makeStyles((theme: Theme) =>
       },
     },
     image: {
-      width: "40rem",
+      width: '35rem',
+      marginRight: '3rem',
       [theme.breakpoints.down(1240)]: {
         width: "60%",
         marginLeft: "auto",
@@ -172,7 +173,7 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     arrowMobile: {
       background:
-        "linear-gradient(90deg, rgba(101,168,237,1) 0%, rgba(122,141,255,1) 100%)",
+      "linear-gradient(90deg, rgba(255, 155, 33, 1) 0%, rgba(232,118,19,1) 100%)",
       "-webkit-background-clip": "text",
       "-webkit-text-fill-color": "transparent",
     },
@@ -229,7 +230,7 @@ export default function PanelSix() {
           </div>
 
           <div className={classes.content}>
-            <img src={il7} className={classes.image} />
+            <img src={RajahMaggayBlue} className={classes.image} />
             <div className={classes.blogContainer}>
               <div className={classes.infoContainer}>
                 <span className={classes.infoDate}>July 1 &#8226; Blog</span>

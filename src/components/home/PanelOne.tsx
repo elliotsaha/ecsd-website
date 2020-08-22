@@ -14,12 +14,19 @@ import backgroundImage from "../../img/homepageBackground.jpg"
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
+    root: {
+      background: "linear-gradient(50deg, #2C2E39, #16181E)",
+    },
     Panel: {
       zIndex: 1,
+      display: 'flex',
+      marginLeft: 'auto',
+      marginRight: 'auto',
+      maxWidth: "100rem",
       position: "relative",
-      background: "linear-gradient(50deg, #2C2E39, #16181E)",
       height: "100vh",
       [theme.breakpoints.down(981)]: {
+        display: 'block',
         height: "38.5rem",
       },
       [theme.breakpoints.down(378)]: {
@@ -172,7 +179,7 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     runningButton: {
       background:
-      "linear-gradient(90deg, rgba(255, 155, 33, 1) 0%, rgba(232,118,19,1) 100%)",
+        "linear-gradient(90deg, rgba(255, 155, 33, 1) 0%, rgba(232,118,19,1) 100%)",
       padding: "1rem",
       fontFamily: "Gilroy, sans-serif",
       fontWeight: 700,
@@ -181,28 +188,28 @@ const useStyles = makeStyles((theme: Theme) =>
       color: "white",
     },
 
-// BACKGROUND IMAGE
-//    container: {
-//      overflow: "auto",
-//    },
-//    backgroundImage: {
-//      position: "absolute",
-//      width: "100%",
-//      left: "50%",
-//      top: "50%",
-//      height: "100%",
-//      objectFit: "cover",
-//      transform: "translate(-50%, -50%)",
-//      zIndex: -1,
-//      filter: "brightness(60%)",
-//    },
+    // BACKGROUND IMAGE
+    //    container: {
+    //      overflow: "auto",
+    //    },
+    //    backgroundImage: {
+    //      position: "absolute",
+    //      width: "100%",
+    //      left: "50%",
+    //      top: "50%",
+    //      height: "100%",
+    //      objectFit: "cover",
+    //      transform: "translate(-50%, -50%)",
+    //      zIndex: -1,
+    //      filter: "brightness(60%)",
+    //    },
     mobileSecoundPanel: {
       display: "none",
       [theme.breakpoints.down(981)]: {
         display: "block",
         paddingTop: "4rem",
         paddingBottom: "4rem",
-        backgroundColor: "#242734",
+        background: "linear-gradient(20deg, #2C2E39, #16181E)",
         minHeight: "25vh",
         padding: "2rem",
       },
@@ -213,9 +220,9 @@ const useStyles = makeStyles((theme: Theme) =>
 export default function PanelOne() {
   const classes = useStyles()
   return (
-    <div>
+    <div className={classes.root}>
       <div className={classes.Panel}>
-{/* 
+        {/* 
 
 // BACKGROUND IMAGE
 
@@ -223,7 +230,7 @@ export default function PanelOne() {
         <img src={backgroundImage} className={classes.backgroundImage} />
       </div>
       
-*/}     
+*/}
         <div className={classes.nameContainer}>
           <div className={classes.name}>
             <Typist
@@ -289,7 +296,7 @@ export default function PanelOne() {
               y: "-100px",
               position: "relative",
               visibility: "visible",
-              filter: 'brightness(100%)',
+              filter: "brightness(100%)",
             }}
             duration={2}
             ease="back.out(0.1)"

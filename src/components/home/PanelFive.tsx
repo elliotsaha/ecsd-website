@@ -11,7 +11,7 @@ import { Link } from "gatsby"
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
-      backgroundColor: "#333645",
+      background: "linear-gradient(70deg, #2C2E39, #16181E)",
       paddingTop: "3rem",
       overflow: "auto",
       position: "relative",
@@ -56,7 +56,7 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     bar: {
       background:
-        "linear-gradient(90deg, rgba(101,168,237,1) 0%, rgba(122,141,255,1) 100%)",
+        "linear-gradient(90deg, rgba(255, 155, 33, 1) 0%, rgba(232,118,19,1) 100%)",
       borderRadius: "0.3rem",
       height: "1rem",
       width: "8rem",
@@ -108,6 +108,7 @@ const useStyles = makeStyles((theme: Theme) =>
       fontFamily: "Gilroy, sans-serif",
       fontWeight: "bolder",
       fontSize: "3.25rem",
+      lineHeight: '3.5rem',
       [theme.breakpoints.down(445)]: {
         fontSize: "2rem",
       },
@@ -122,7 +123,7 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     Button: {
       background:
-        "linear-gradient(90deg, rgba(101,168,237,1) 0%, rgba(122,141,255,1) 100%)",
+        "linear-gradient(90deg, rgba(255, 155, 33, 1) 0%, rgba(232,118,19,1) 100%)",
       padding: "0.8rem",
       fontFamily: "Gilroy, sans-serif",
       fontWeight: 700,

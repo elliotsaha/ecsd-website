@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react"
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles"
-import RajahMaggayColoured from "../../img/RajahMaggayColoured.png"
+import RajahMaggayPink from "../../img/RajahMaggayPink.jpeg"
 import Button from "@material-ui/core/Button"
 import { useIntersection } from "react-use"
 import { gsap } from "gsap"
@@ -8,7 +8,7 @@ import { Link } from "gatsby"
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     body: {
-      backgroundColor: "#242734",
+      background: "linear-gradient(30deg, #2C2E39, #16181E)",
       [theme.breakpoints.down(981)]: {
         backgroundColor: "#333645",
       },
@@ -51,14 +51,18 @@ const useStyles = makeStyles((theme: Theme) =>
       fontFamily: "Gilroy, sans-serif",
       fontWeight: "normal",
       fontSize: "1.5rem",
-      [theme.breakpoints.down(1144)]: {
+      [theme.breakpoints.down(1444)]: {
+        fontSize: "1.4rem",
+        marginRight: "0rem",
+      },
+      [theme.breakpoints.down(1216)]: {
         fontSize: "1.2rem",
         marginRight: "0rem",
       },
     },
     bar: {
       background:
-        "linear-gradient(90deg, rgba(101,168,237,1) 0%, rgba(122,141,255,1) 100%)",
+        "linear-gradient(90deg, rgba(255, 155, 33, 1) 0%, rgba(232,118,19,1) 100%)",
       borderRadius: "0.3rem",
       height: "1rem",
       width: "8rem",
@@ -69,21 +73,16 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     imgContainer: {
       marginLeft: "3rem",
-      width: "230%",
       marginRight: "3rem",
       display: "flex",
-      [theme.breakpoints.down(1500)]: {
-        width: "300rem",
-      },
-      [theme.breakpoints.down(1249)]: {
-        marginLeft: "1rem",
-      },
+      width: "300rem",
+      marginTop: "5rem",
       [theme.breakpoints.down(1059)]: {
         display: "none",
       },
     },
     img: {
-      width: '100%',
+      width: "40rem",
       display: "block",
       marginTop: "auto",
       marginBottom: "auto",
@@ -91,9 +90,26 @@ const useStyles = makeStyles((theme: Theme) =>
         margin: 0,
       },
     },
+    imgContainerMobile: {
+      display: "none",
+
+      [theme.breakpoints.down(1059)]: {
+        marginTop: '3rem', 
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+      },
+    },
+    imgMobile: {
+      width: "70%",
+      display: "block",
+      [theme.breakpoints.down(590)]: {
+        width: "110%",
+      },
+    },
     Button: {
       background:
-        "linear-gradient(90deg, rgba(101,168,237,1) 0%, rgba(122,141,255,1) 100%)",
+        "linear-gradient(90deg, rgba(255, 155, 33, 1) 0%, rgba(232,118,19,1) 100%)",
       padding: "0.8rem",
       fontFamily: "Gilroy, sans-serif",
       fontWeight: 700,
@@ -155,23 +171,27 @@ export default function PanelFour() {
         <div className="fadeIn3">
           <div className={classes.root}>
             <div className={classes.imgContainer}>
-              <img src={RajahMaggayColoured} className={classes.img} />
+              <img src={RajahMaggayPink} className={classes.img} />
             </div>
             <div className={classes.text}>
               <div className={classes.title}>About Me</div>
               <div className={classes.bar} />
+              <div className={classes.imgContainerMobile}>
+                <img src={RajahMaggayPink} className={classes.imgMobile} />
+              </div>
               <div className={classes.para}>
                 <div>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Aenean et erat nunc. Lorem ipsum dolor sit amet, consectetur
-                  adipiscing elit. Aenean et erat nunc. Lorem ipsum dolor sit
-                  amet, consectetur adipiscing elit. Aenean et erat nunc. Lorem
-                  ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
-                  erat nunc. Lorem ipsum dolor sit amet, consectetur adipiscing
-                  elit. Aenean et erat nunc. Lorem ipsum dolor sit amet,
-                  consectetur adipiscing elit. Aenean et erat nunc. Lorem ipsum
-                  dolor sit amet, consectetur adipiscing elit. Aenean et erat
-                  nunc. Lorem ipsum dolor sit amet, consectetur
+                  I’ve lived in this area with my family who immigrated from the
+                  Philippines for 20 years. I’ve grown up here and experienced
+                  the benefits of attending Edmonton Catholic. Additionally,
+                  this also means I’ve seen the gaps that our school board faces
+                  that prevent us from serving our students to the best of our
+                  ability in a way that supports the religious journeys of all
+                  students. Our world is constantly shifting and our students
+                  more than ever are faced with new pressures. As your trustee I
+                  would be committed to transparency and honesty and would like
+                  students and families to know that you can live a life of
+                  great faith while adapting to these new realities.
                 </div>
               </div>
             </div>
