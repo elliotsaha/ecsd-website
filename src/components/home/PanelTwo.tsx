@@ -7,7 +7,7 @@ import { Tween } from "react-gsap"
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
-      backgroundColor: "#242734",
+      background: "linear-gradient(50deg, #16181E, #2C2E39)",
       fontFamily: "Gilroy, sans-serif",
       textAlign: "center",
       paddingTop: "3rem",
@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     bar: {
       background:
-        "linear-gradient(90deg, rgba(101,168,237,1) 0%, rgba(122,141,255,1) 100%)",
+        "linear-gradient(90deg, rgba(255, 155, 33, 1) 0%, rgba(232,118,19,1) 100%)",
       borderRadius: "0.3rem",
       height: "1rem",
       width: "8rem",
@@ -93,7 +93,6 @@ export default function PanelTwo() {
           <div className={classes.bar} />
           <br />
           <div className={classes.para}>
-            
             As a collective, we should create a unique community-based identity
             that is fortified in collaboration and the equitable treatment of
             all citizens.

@@ -10,14 +10,14 @@ import Twitter from "../../img/twitter.svg"
 import LinkedIn from "../../img/linkedIn.svg"
 import RajahMaggay from "../../img/RajahMaggayRed.png"
 import { Link } from "gatsby"
-import backgroundImage from "../../img/homepageBackground.png"
+import backgroundImage from "../../img/homepageBackground.jpg"
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     Panel: {
       zIndex: 1,
       position: "relative",
-      backgroundColor: "#333645",
+      background: "linear-gradient(50deg, #2C2E39, #16181E)",
       height: "100vh",
       [theme.breakpoints.down(981)]: {
         height: "38.5rem",
@@ -84,7 +84,7 @@ const useStyles = makeStyles((theme: Theme) =>
       position: "absolute",
       bottom: "-100px",
       marginBottom: 0,
-      marginLeft: "20rem",
+      marginLeft: "22rem",
       opacity: 0,
       width: "80vh",
       [theme.breakpoints.down(1320)]: {
@@ -180,20 +180,22 @@ const useStyles = makeStyles((theme: Theme) =>
       fontSize: "1rem",
       color: "white",
     },
-    container: {
-      overflow: "auto",
-    },
-    backgroundImage: {
-      position: "absolute",
-      width: "100%",
-      left: "50%",
-      top: "50%",
-      height: "100%",
-      objectFit: "cover",
-      transform: "translate(-50%, -50%)",
-      zIndex: -1,
-      filter: "brightness(40%)",
-    },
+
+// BACKGROUND IMAGE
+//    container: {
+//      overflow: "auto",
+//    },
+//    backgroundImage: {
+//      position: "absolute",
+//      width: "100%",
+//      left: "50%",
+//      top: "50%",
+//      height: "100%",
+//      objectFit: "cover",
+//      transform: "translate(-50%, -50%)",
+//      zIndex: -1,
+//      filter: "brightness(60%)",
+//    },
     mobileSecoundPanel: {
       display: "none",
       [theme.breakpoints.down(981)]: {
@@ -213,9 +215,15 @@ export default function PanelOne() {
   return (
     <div>
       <div className={classes.Panel}>
+{/* 
+
+// BACKGROUND IMAGE
+
       <div className={classes.container}>
         <img src={backgroundImage} className={classes.backgroundImage} />
       </div>
+      
+*/}     
         <div className={classes.nameContainer}>
           <div className={classes.name}>
             <Typist
@@ -281,7 +289,7 @@ export default function PanelOne() {
               y: "-100px",
               position: "relative",
               visibility: "visible",
-              filter: 'brightness(60%)',
+              filter: 'brightness(100%)',
             }}
             duration={2}
             ease="back.out(0.1)"

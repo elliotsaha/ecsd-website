@@ -43,7 +43,7 @@ const useStyles = makeStyles(theme =>
     appBarScroll: {
       width: "100%",
       transition: "all 0.15s ease",
-      background: "#1A1D29",
+      background: "#16181E",
       paddingBottom: "1rem",
       textTransform: "none",
       position: "fixed",
@@ -71,7 +71,7 @@ const useStyles = makeStyles(theme =>
     },
     drawerPaper: {
       width: drawerWidth,
-      background: "#7A8DFF",
+      background: "linear-gradient(50deg, #2C2E39, #16181E)",
     },
     inactive: {
       opacity: "50%",
@@ -153,7 +153,7 @@ const useStyles = makeStyles(theme =>
         width: "100%",
         transition: "all 0.15s ease",
         display: "block",
-        background: "#1A1D29",
+        background: "#16181E",
       },
     },
     menuButton: {
