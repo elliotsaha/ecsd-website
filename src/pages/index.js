@@ -12,7 +12,7 @@ export default function index() {
   return (
     <Layout>
       <SEO title="Homepage" />
-      <PanelOne />
+      <PanelOne/>
       <PanelTwo />
       <PanelThree />
       <PanelFour />

@@ -6,6 +6,9 @@ import Button from "@material-ui/core/Button"
 import ArrowForwardRoundedIcon from "@material-ui/icons/ArrowForwardRounded"
 import Arrow from "../../img/Arrow.svg"
 import { gsap } from "gsap"
+import { Link, graphql, useStaticQuery } from "gatsby"
+import Img from "gatsby-image"
+
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
@@ -13,7 +16,7 @@ const useStyles = makeStyles((theme: Theme) =>
       paddingTop: "2rem",
       overflow: "auto",
       position: "relative",
-      paddingBottom: "1rem",
+      paddingBottom: "4rem",
       [theme.breakpoints.down(981)]: {
         backgroundColor: "#333645",
       },
@@ -26,7 +29,7 @@ const useStyles = makeStyles((theme: Theme) =>
       marginLeft: "auto",
       marginRight: "auto",
       background:
-      "linear-gradient(90deg, rgba(255, 155, 33, 1) 0%, rgba(232,118,19,1) 100%)",
+        "linear-gradient(90deg, rgba(255, 155, 33, 1) 0%, rgba(232,118,19,1) 100%)",
       borderRadius: "0.3rem",
       height: "1rem",
       width: "8rem",
@@ -122,8 +125,8 @@ const useStyles = makeStyles((theme: Theme) =>
       },
     },
     image: {
-      width: '35rem',
-      marginRight: '3rem',
+      width: "35rem",
+      marginRight: "3rem",
       [theme.breakpoints.down(1240)]: {
         width: "60%",
         marginLeft: "auto",
@@ -173,7 +176,7 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     arrowMobile: {
       background:
-      "linear-gradient(90deg, rgba(255, 155, 33, 1) 0%, rgba(232,118,19,1) 100%)",
+        "linear-gradient(90deg, rgba(255, 155, 33, 1) 0%, rgba(232,118,19,1) 100%)",
       "-webkit-background-clip": "text",
       "-webkit-text-fill-color": "transparent",
     },
@@ -218,6 +221,20 @@ export default function PanelSix() {
       : fadeIn(".fadeIn5")
   }, [intersection])
 
+  const data = useStaticQuery(graphql`
+    query {
+      RajahMaggayBlueGatsby: file(
+        relativePath: { eq: "RajahMaggayBlue.png" }
+      ) {
+        childImageSharp {
+          fluid(maxWidth: 4000, quality: 100) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  `)
+
   return (
     <div className={classes.root}>
       <div ref={sectionRef5}>
@@ -230,7 +247,10 @@ export default function PanelSix() {
           </div>
 
           <div className={classes.content}>
-            <img src={RajahMaggayBlue} className={classes.image} />
+            <Img
+              fluid={data.RajahMaggayBlueGatsby.childImageSharp.fluid}
+              className={classes.image}
+            />
             <div className={classes.blogContainer}>
               <div className={classes.infoContainer}>
                 <span className={classes.infoDate}>July 1 &#8226; Blog</span>

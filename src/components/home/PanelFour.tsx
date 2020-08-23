@@ -4,7 +4,9 @@ import RajahMaggayPink from "../../img/RajahMaggayPink.jpeg"
 import Button from "@material-ui/core/Button"
 import { useIntersection } from "react-use"
 import { gsap } from "gsap"
-import { Link } from "gatsby"
+import { Link, graphql, useStaticQuery } from "gatsby"
+import Img from "gatsby-image"
+
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     body: {
@@ -94,7 +96,7 @@ const useStyles = makeStyles((theme: Theme) =>
       display: "none",
 
       [theme.breakpoints.down(1059)]: {
-        marginTop: '3rem', 
+        marginTop: "3rem",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
@@ -165,19 +167,41 @@ export default function PanelFour() {
       : fadeIn(".fadeIn3")
   }, [intersection])
 
+  const data = useStaticQuery(graphql`
+    query {
+      RajahMaggayPinkGatsby: file(
+        relativePath: { eq: "RajahMaggayPink.jpeg" }
+      ) {
+        childImageSharp {
+          fluid(maxWidth: 2000, quality: 100) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  `)
+
   return (
     <div className={classes.body}>
       <div ref={sectionRef3}>
         <div className="fadeIn3">
           <div className={classes.root}>
             <div className={classes.imgContainer}>
-              <img src={RajahMaggayPink} className={classes.img} />
+              <Img
+                fluid={data.RajahMaggayPinkGatsby.childImageSharp.fluid}
+                className={classes.img}
+              />
             </div>
             <div className={classes.text}>
               <div className={classes.title}>About Me</div>
               <div className={classes.bar} />
               <div className={classes.imgContainerMobile}>
-                <img src={RajahMaggayPink} className={classes.imgMobile} />
+                {/*<img src={RajahMaggayPink} className={classes.imgMobile} />*/}
+
+                <Img
+                  fluid={data.RajahMaggayPinkGatsby.childImageSharp.fluid}
+                  className={classes.imgMobile}
+                />
               </div>
               <div className={classes.para}>
                 <div>

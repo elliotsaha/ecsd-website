@@ -8,25 +8,24 @@ import { Tween } from "react-gsap"
 import Instagram from "../../img/instagram.svg"
 import Twitter from "../../img/twitter.svg"
 import LinkedIn from "../../img/linkedIn.svg"
-import RajahMaggay from "../../img/RajahMaggayRed.png"
-import { Link } from "gatsby"
-import backgroundImage from "../../img/homepageBackground.jpg"
+import { Link, graphql, StaticQuery } from "gatsby"
+import Img from "gatsby-image"
 
-const useStyles = makeStyles((theme: Theme) =>
+const useStyles = makeStyles((theme: any) =>
   createStyles({
     root: {
       background: "linear-gradient(50deg, #2C2E39, #16181E)",
     },
     Panel: {
       zIndex: 1,
-      display: 'flex',
-      marginLeft: 'auto',
-      marginRight: 'auto',
+      display: "flex",
+      marginLeft: "auto",
+      marginRight: "auto",
       maxWidth: "100rem",
       position: "relative",
       height: "100vh",
       [theme.breakpoints.down(981)]: {
-        display: 'block',
+        display: "block",
         height: "38.5rem",
       },
       [theme.breakpoints.down(378)]: {
@@ -86,13 +85,11 @@ const useStyles = makeStyles((theme: Theme) =>
       alignItems: "flex-end",
     },
     image: {
-      visibility: "hidden",
       display: "block",
-      position: "absolute",
-      bottom: "-100px",
+
       marginBottom: 0,
       marginLeft: "22rem",
-      opacity: 0,
+
       width: "80vh",
       [theme.breakpoints.down(1320)]: {
         marginLeft: "16.5rem",
@@ -102,6 +99,12 @@ const useStyles = makeStyles((theme: Theme) =>
         marginRight: "auto",
         width: "30rem",
       },
+    },
+    imageOuter: {
+      position: "absolute",
+      bottom: "-100px",
+      visibility: "hidden",
+      opacity: 0,
     },
     socialInner: {
       display: "inline-block",
@@ -216,8 +219,7 @@ const useStyles = makeStyles((theme: Theme) =>
     },
   })
 )
-
-export default function PanelOne() {
+const PanelOne = () => {
   const classes = useStyles()
   return (
     <div className={classes.root}>
@@ -290,23 +292,44 @@ export default function PanelOne() {
         </div>
 
         <div className={classes.imageContainer}>
-          <Tween
-            to={{
-              opacity: 1,
-              y: "-100px",
-              position: "relative",
-              visibility: "visible",
-              filter: "brightness(100%)",
-            }}
-            duration={2}
-            ease="back.out(0.1)"
-          >
-            <img
-              src={RajahMaggay}
-              alt="Rajah Maggay"
-              className={classes.image}
-            />
-          </Tween>
+          <StaticQuery
+            query={graphql`
+              query {
+                RajahMaggayRedGatsby: file(
+                  relativePath: { eq: "RajahMaggayRed.png" }
+                ) {
+                  childImageSharp {
+                    
+                      fluid(maxWidth: 1500, quality: 100) {
+                        ...GatsbyImageSharpFluid
+                      }
+                    
+                  }
+                }
+              }
+            `}
+            render={data => (
+              <Tween
+                to={{
+                  opacity: 1,
+                  y: "-100px",
+                  position: "relative",
+                  visibility: "visible",
+                  filter: "brightness(100%)",
+                }}
+                duration={2}
+                ease="back.out(0.1)"
+              >
+                <div className={classes.imageOuter}>
+                  <Img
+                    fluid={data.RajahMaggayRedGatsby.childImageSharp.fluid}
+                    className={classes.image}
+                  />
+                </div>
+              </Tween>
+            )}
+          />
+
           <Tween
             to={{
               opacity: 1,
@@ -348,3 +371,5 @@ export default function PanelOne() {
     </div>
   )
 }
+
+export default PanelOne
