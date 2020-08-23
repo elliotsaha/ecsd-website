@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from "react"
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles"
-import RajahMaggayPink from "../../img/RajahMaggayPink.jpeg"
 import Button from "@material-ui/core/Button"
 import { useIntersection } from "react-use"
 import { gsap } from "gsap"
@@ -170,10 +169,10 @@ export default function PanelFour() {
   const data = useStaticQuery(graphql`
     query {
       RajahMaggayPinkGatsby: file(
-        relativePath: { eq: "RajahMaggayPink.jpeg" }
+        relativePath: { eq: "RajahMaggayPink.png" }
       ) {
         childImageSharp {
-          fluid(maxWidth: 2000, quality: 100) {
+          fluid(maxWidth: 5000, quality: 100) {
             ...GatsbyImageSharpFluid
           }
         }
