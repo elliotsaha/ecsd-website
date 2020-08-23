@@ -249,6 +249,7 @@ export default function PanelSix() {
           <div className={classes.content}>
             <Img
               fluid={data.RajahMaggayBlueGatsby.childImageSharp.fluid}
+              loading="eager"
               className={classes.image}
             />
             <div className={classes.blogContainer}>

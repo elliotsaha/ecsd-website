@@ -384,6 +384,7 @@ export default function PanelSeven() {
         <div className={classes.imageContainer}>
           <div className="fadeIn6">
           <Img
+          loading="eager"
               fluid={data.RajahMaggaySmilingGatsby.childImageSharp.fluid}
               className={classes.image}
             />
