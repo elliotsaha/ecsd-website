@@ -1,5 +1,5 @@
 import React from "react"
-import { createStyles, makeStyles, Theme } from "@material-ui/core/styles"
+import { createStyles, makeStyles } from "@material-ui/core/styles"
 import Button from "@material-ui/core/Button"
 import Typist from "react-typist"
 import "react-typist/dist/Typist.css"
