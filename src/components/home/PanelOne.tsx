@@ -99,12 +99,22 @@ const useStyles = makeStyles((theme: any) =>
         marginRight: "auto",
         width: "30rem",
       },
+      [theme.breakpoints.down(500)]: {
+        marginLeft: "auto",
+        marginRight: "auto",
+        width: "100%",
+      },
     },
     imageOuter: {
       position: "absolute",
       bottom: "-100px",
       visibility: "hidden",
       opacity: 0,
+      [theme.breakpoints.down(981)]: {
+        marginLeft: "auto",
+        marginRight: "auto",
+        width: "30rem",
+      },
     },
     socialInner: {
       display: "inline-block",
