@@ -10,15 +10,21 @@ import Img from "gatsby-image"
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
+    aboveRoot: {
+      background: "linear-gradient(30deg, #2C2E39, #16181E)",
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
     root: {
       overflow: "auto",
-      background: "linear-gradient(30deg, #2C2E39, #16181E)",
       position: "relative",
       [theme.breakpoints.down(981)]: {
         backgroundColor: "#242734",
       },
       display: "grid",
       gridTemplateColumns: "1fr 1fr",
+      maxWidth: '200rem',
     },
     button: {
       fontFamily: "Gilroy, sans-serif",
@@ -267,7 +273,7 @@ export default function PanelSeven() {
   }, [intersection])
 
   return (
-    <div>
+    <div className={classes.aboveRoot}>
       {/*Defining Ref for intersection observer*/}
       <div ref={sectionRef6} className={classes.root}>
         <div className={classes.title}>

@@ -1,12 +1,14 @@
 import React from "react"
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles"
-import nightSky from "../../img/nightSky.jpg"
 import { Link, graphql, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
 const useStyles = makeStyles(theme =>
   createStyles({
     root: {
       overflow: "hidden",
+      position: 'relative',
+      backgroundColor: "#E1E1EB",
+      zIndex: -1,
     },
     imageContainer: {
       overflow: "hidden",
@@ -16,11 +18,12 @@ const useStyles = makeStyles(theme =>
       width: "100%",
       left: "50%",
       top: "45%",
-      height: "100%",
+      height: '100%',
       transform: "translate(-50%, -50%)",
       zIndex: -1,
     },
     image: {
+      height: '105%',
       objectFit: "cover",
       filter: "brightness(40%)",
     },
@@ -32,7 +35,7 @@ const useStyles = makeStyles(theme =>
       textAlign: "center",
       width: "100%",
       height: "90vh",
-      fontFamily: "Poppins, sans-serif",
+      fontFamily: "Gilroy, sans-serif",
       fontWeight: "bolder",
       fontSize: "5rem",
       lineHeight: "6rem",
