@@ -105,7 +105,7 @@ export default function PanelEight() {
         {/*Social Media Icons*/}
         <div className="fadeIn7">
           <a
-            href="https://github.com/HerilS"
+            href="https://www.linkedin.com/in/rajahmaggay"
             target="_blank"
             rel="noopener noreferrer"
             className={classes.icons}
@@ -115,7 +115,7 @@ export default function PanelEight() {
         </div>
         <div className="fadeIn7">
           <a
-            href="https://www.instagram.com/herilsaha"
+            href="https://twitter.com/rajahmaggay"
             target="_blank"
             rel="noopener noreferrer"
             className={classes.icons}
@@ -125,7 +125,7 @@ export default function PanelEight() {
         </div>
         <div className="fadeIn7">
           <a
-            href="https://ca.linkedin.com/in/herilsaha"
+            href="https://www.instagram.com/rajahmaggay"
             target="_blank"
             rel="noopener noreferrer"
             className={classes.icons}

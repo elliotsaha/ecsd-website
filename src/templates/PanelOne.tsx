@@ -6,9 +6,9 @@ const useStyles = makeStyles(theme =>
   createStyles({
     root: {
       overflow: "hidden",
-      position: 'relative',
+      position: "relative",
       backgroundColor: "#E1E1EB",
-      zIndex: 1,
+      zIndex: -1,
     },
     imageContainer: {
       overflow: "hidden",
@@ -18,12 +18,12 @@ const useStyles = makeStyles(theme =>
       width: "100%",
       left: "50%",
       top: "45%",
-      height: '100%',
+      height: "100%",
       transform: "translate(-50%, -50%)",
       zIndex: -1,
     },
     image: {
-      height: '105%',
+      height: "105%",
       objectFit: "cover",
       filter: "brightness(40%)",
     },
@@ -34,7 +34,7 @@ const useStyles = makeStyles(theme =>
       marginLeft: "0.75rem",
       textAlign: "center",
       width: "100%",
-      height: "90vh",
+      height: "87vh",
       fontFamily: "Gilroy, sans-serif",
       fontWeight: "bolder",
       fontSize: "5rem",
@@ -44,14 +44,33 @@ const useStyles = makeStyles(theme =>
       alignItems: "center",
       justifyContent: "center",
       marginTop: "auto",
-      [theme.breakpoints.down(450)]: {
-        fontSize: "3rem",
+      paddingRight: "0.5rem",
+      paddingLeft: "0.5rem",
+      [theme.breakpoints.down(950)]: {
+        fontSize: "2.5rem",
         lineHeight: "4rem",
       },
+      [theme.breakpoints.down(680)]: {
+        fontSize: "2rem",
+        lineHeight: "3rem",
+      },
+      [theme.breakpoints.down(530)]: {
+        fontSize: "1.5rem",
+        lineHeight: "2rem",
+        letterSpacing: "0.1rem",
+        marginLeft: "0.05rem",
+      },
+    },
+    date: {
+      color: 'white',
+      textAlign: 'center',
+      marginBottom: '3rem',
+      fontFamily: 'Gilroy, sans-serif',
+      fontWeight: 'bold',
     },
   })
 )
-export default function PanelOne() {
+export default function PanelOne({ title, date }: any) {
   const data = useStaticQuery(graphql`
     query {
       nightSkyGatsby: file(relativePath: { eq: "nightSky.jpg" }) {
@@ -68,10 +87,15 @@ export default function PanelOne() {
     <div className={classes.root}>
       <div className={classes.imageContainer}>
         <div className={classes.imageOuter}>
-          <Img fluid={data.nightSkyGatsby.childImageSharp.fluid} className={classes.image} loading="eager" />
+          <Img
+            fluid={data.nightSkyGatsby.childImageSharp.fluid}
+            className={classes.image}
+            loading="eager"
+          />
         </div>
       </div>
-      <div className={classes.text}>Blog</div>
+      <div className={classes.text}>{title}</div>
+      <div className={classes.date}>{date}</div>
     </div>
   )
 }

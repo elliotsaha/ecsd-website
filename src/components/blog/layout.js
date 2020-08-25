@@ -1,5 +1,4 @@
 import React, { useState } from "react"
-import PanelOne from "./PanelOne"
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles"
 import { Link, graphql, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
@@ -7,8 +6,11 @@ const useStyles = makeStyles(theme =>
   createStyles({
     root: {
       display: 'grid',
-      gridTemplateColumns: '1fr 1fr',
-
+      maxWidth: '45rem',
+      marginLeft: 'auto',
+      marginRight: 'auto',
+      gridGap: '2rem',
+      paddingTop: '3rem',
     },
   }))
 const Layout = ({ location, title, children }) => {
@@ -16,15 +18,7 @@ const Layout = ({ location, title, children }) => {
   let header
   return (
     <div>
-      <PanelOne />
-      <h1>{title}</h1>
-      <header>{header}</header>
       <main className={classes.root}>{children}</main>
-      <footer>
-        © {new Date().getFullYear()}, Built with
-        {` `}
-        <a href="https://www.gatsbyjs.org">Gatsby</a>
-      </footer>
     </div>
   )
 }

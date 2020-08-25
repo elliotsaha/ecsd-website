@@ -89,7 +89,7 @@ const useStyles = makeStyles((theme: any) =>
 
       marginBottom: 0,
       marginLeft: "22rem",
-
+      filter: 'brightness(0.7)',
       width: "80vh",
       [theme.breakpoints.down(1320)]: {
         marginLeft: "16.5rem",
