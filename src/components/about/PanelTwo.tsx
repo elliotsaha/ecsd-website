@@ -1,13 +1,14 @@
 import React from "react"
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles"
-
+import { Link, graphql, useStaticQuery } from "gatsby"
+import Img from "gatsby-image"
 const useStyles = makeStyles(theme =>
   createStyles({
     root: {
       backgroundColor: "#E1E1EB",
       fontFamily: "Gilroy, sans-serif",
       paddingTop: "1.5rem",
-      paddingBottom: '3rem',
+      paddingBottom: "3rem",
     },
     titleTop: {
       textTransform: "uppercase",
@@ -17,8 +18,8 @@ const useStyles = makeStyles(theme =>
       fontSize: "2.5rem",
       paddingBottom: "0.4rem",
       lineHeight: "2.5rem",
-      fontWeight: 'bold',
-      paddingTop: '1rem',
+      fontWeight: "bold",
+      paddingTop: "1rem",
     },
     title: {
       textTransform: "uppercase",
@@ -28,8 +29,8 @@ const useStyles = makeStyles(theme =>
       fontSize: "2.3rem",
       paddingBottom: "1rem",
       lineHeight: "2.5rem",
-      fontWeight: 'bold',
-      paddingTop: '4rem',
+      fontWeight: "bold",
+      paddingTop: "4rem",
     },
     paraCenter: {
       fontFamily: "Gilroy, sans-serif",
@@ -56,11 +57,46 @@ const useStyles = makeStyles(theme =>
       paddingBottom: "0.2rem",
       backgroundColor: "rgba(255, 155, 33, 0.32)",
       transition: "all 0.2s ease",
-      fontStyle: 'italic',
+      fontStyle: "italic",
+    },
+    imageContainer: {
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      paddingTop: "3rem",
+    },
+    image: {
+      width: "66rem",
+      margin: 0,
     },
   })
 )
 export default function PanelTwo() {
+  const data = useStaticQuery(graphql`
+    query {
+      RajahMaggay3People: file(relativePath: { eq: "RajahMaggay3People.jpg" }) {
+        childImageSharp {
+          fluid(maxWidth: 5000, quality: 100) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      RajahMaggayGroup: file(relativePath: { eq: "RajahMaggayGroup.jpg" }) {
+        childImageSharp {
+          fluid(maxWidth: 5000, quality: 100) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      RajahMaggayDesk: file(relativePath: { eq: "RajahMaggayDesk.jpeg" }) {
+        childImageSharp {
+          fluid(maxWidth: 5000, quality: 100) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  `)
   const classes = useStyles()
   return (
     <div className={classes.root}>
@@ -71,6 +107,15 @@ export default function PanelTwo() {
           honesty and forgiveness.
         </div>
       </div>
+
+      <div className={classes.imageContainer}>
+        <Img
+          fluid={data.RajahMaggay3People.childImageSharp.fluid}
+          className={classes.image}
+          loading="eager"
+        />
+      </div>
+
       <div className={classes.title}>Your Next ECSB Trustee</div>
       <div className={classes.paraContainer}>
         <div className={classes.para}>
@@ -107,7 +152,13 @@ export default function PanelTwo() {
           realities.
         </div>
       </div>
-
+      <div className={classes.imageContainer}>
+        <Img
+          fluid={data.RajahMaggayGroup.childImageSharp.fluid}
+          className={classes.image}
+          loading="eager"
+        />
+      </div>
       <div className={classes.title}>Community Involvement</div>
       <div className={classes.paraContainer}>
         <div className={classes.para}>
@@ -168,7 +219,13 @@ export default function PanelTwo() {
           mission.
         </div>
       </div>
-
+      <div className={classes.imageContainer}>
+        <Img
+          fluid={data.RajahMaggayDesk.childImageSharp.fluid}
+          className={classes.image}
+          loading="eager"
+        />
+      </div>
       <div className={classes.title}>Why Edmonton Catholic</div>
       <div className={classes.paraContainer}>
         <div className={classes.para}>
