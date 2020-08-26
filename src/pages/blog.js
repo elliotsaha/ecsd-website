@@ -92,7 +92,7 @@ const BlogIndex = ({ data, location }) => {
               <div key={node.fields.slug} className={classes.cardBody}>
                 <Link
                   className={classes.link}
-                  to={node.fields.slug}
+                  to={`blog/${node.fields.slug}`}
                 >
                   <div className={classes.container}>
                     <div className={classes.textContainer}>
