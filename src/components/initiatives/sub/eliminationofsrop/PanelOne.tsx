@@ -71,7 +71,7 @@ export default function PanelOne() {
           <Img fluid={data.nightSkyGatsby.childImageSharp.fluid} className={classes.image} loading="eager" />
         </div>
       </div>
-      <div className={classes.text}>Initiatives</div>
+      <div className={classes.text}>Elimination of the school resource officer program</div>
     </div>
   )
 }

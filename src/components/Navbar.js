@@ -390,6 +390,7 @@ export default function Navbar() {
               to="/about"
               className={classes.inactive}
               activeClassName={classes.active}
+              partiallyActive
             >
               About
             </Link>
@@ -397,6 +398,7 @@ export default function Navbar() {
               to="/blog"
               className={classes.inactive}
               activeClassName={classes.active}
+              partiallyActive
             >
               Blog
             </Link>
@@ -404,6 +406,7 @@ export default function Navbar() {
               to="/initiatives"
               className={classes.inactive}
               activeClassName={classes.active}
+              partiallyActive
             >
               Initiatives
             </Link>

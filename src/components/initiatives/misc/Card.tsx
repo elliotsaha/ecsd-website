@@ -6,11 +6,12 @@ import ArrowForwardIosRoundedIcon from "@material-ui/icons/ArrowForwardIosRounde
 
 const useStyles = makeStyles(theme =>
   createStyles({
-    root: {},
+    root: {
+    },
     card: {
       position: "relative",
       width: "30rem",
-      overflow: "auto",
+      overflow: "hidden",
       fontFamily: "Gilroy, sans-serif",
       borderRadius: "1.5rem",
       boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.25)",
@@ -108,7 +109,7 @@ export default function PanelTwo({
           <div className={titleModifier}>{title}</div>
           <div className={classes.mainText}>
             <div>{paragraph}</div>
-            <Link to={`initiatives/${link}`}>
+            <Link to={`/initiatives/${link}`}>
               <div className={classes.readMore}>
                 <span>Read More</span>
                 <span>

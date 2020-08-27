@@ -17,6 +17,9 @@ const useStyles = makeStyles(theme =>
       display: "grid",
       gridTemplateColumns: "1fr 1fr",
       gridGap: "2rem",
+      [theme.breakpoints.down(1015)]: {
+        gridTemplateColumns: "1fr",
+      },
     },
     shift: {
       paddingTop: "3rem",
@@ -61,6 +64,10 @@ const useStyles = makeStyles(theme =>
         [theme.breakpoints.down(380)]: {
           paddingTop: "6rem",
           fontSize: "1.4rem",
+        },
+        [theme.breakpoints.down(310)]: {
+          paddingTop: "7rem",
+          fontSize: "1.1rem",
         },
       },
       title1Line: {
