@@ -334,6 +334,7 @@ const PanelOne = () => {
                   <Img
                     fluid={data.RajahMaggayRedGatsby.childImageSharp.fluid}
                     className={classes.image}
+                    loading="eager"
                   />
                 </div>
               </Tween>

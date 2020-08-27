@@ -392,6 +392,7 @@ export default function PanelSeven() {
             <Img
               fluid={data.RajahMaggaySmilingGatsby.childImageSharp.fluid}
               className={classes.image}
+              loading="eager"
             />
           </div>
         </div>

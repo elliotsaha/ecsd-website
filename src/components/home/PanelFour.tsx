@@ -195,6 +195,7 @@ export default function PanelFour() {
               <Img
                 fluid={data.RajahMaggayPinkGatsby.childImageSharp.fluid}
                 className={classes.img}
+                loading="eager"
               />
             </div>
             <div className={classes.text}>
