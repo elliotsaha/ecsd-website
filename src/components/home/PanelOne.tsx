@@ -313,7 +313,7 @@ const PanelOne = () => {
                   childImageSharp {
                     
                       fluid(maxWidth: 850, quality: 100) {
-                        ...GatsbyImageSharpFluid
+                        ...GatsbyImageSharpFluid_noBase64
                       }
                     
                   }

@@ -57,7 +57,7 @@ export default function PanelOne() {
       nightSkyGatsby: file(relativePath: { eq: "nightSky.jpg" }) {
         childImageSharp {
           fluid(maxWidth: 1300, quality: 100) {
-            ...GatsbyImageSharpFluid
+            ...GatsbyImageSharpFluid_withWebp
           }
         }
       }
