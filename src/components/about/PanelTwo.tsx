@@ -112,7 +112,6 @@ export default function PanelTwo() {
         <Img
           fluid={data.RajahMaggay3People.childImageSharp.fluid}
           className={classes.image}
-          loading="eager"
         />
       </div>
 
@@ -156,7 +155,6 @@ export default function PanelTwo() {
         <Img
           fluid={data.RajahMaggayGroup.childImageSharp.fluid}
           className={classes.image}
-          loading="eager"
         />
       </div>
       <div className={classes.title}>Community Involvement</div>
@@ -223,7 +221,6 @@ export default function PanelTwo() {
         <Img
           fluid={data.RajahMaggayDesk.childImageSharp.fluid}
           className={classes.image}
-          loading="eager"
         />
       </div>
       <div className={classes.title}>Why Edmonton Catholic</div>

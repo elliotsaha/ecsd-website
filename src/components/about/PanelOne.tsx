@@ -68,7 +68,7 @@ export default function PanelOne() {
     <div className={classes.root}>
       <div className={classes.imageContainer}>
         <div className={classes.imageOuter}>
-          <Img fluid={data.nightSkyGatsby.childImageSharp.fluid} className={classes.image} loading="eager" />
+          <Img fluid={data.nightSkyGatsby.childImageSharp.fluid} className={classes.image} />
         </div>
       </div>
       <div className={classes.text}>About Rajah</div>

@@ -12,9 +12,9 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     aboveRoot: {
       background: "linear-gradient(30deg, #2C2E39, #16181E)",
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
     },
     root: {
       overflow: "auto",
@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme: Theme) =>
       },
       display: "grid",
       gridTemplateColumns: "1fr 1fr",
-      maxWidth: '200rem',
+      maxWidth: "200rem",
     },
     button: {
       fontFamily: "Gilroy, sans-serif",
@@ -389,8 +389,7 @@ export default function PanelSeven() {
         </div>
         <div className={classes.imageContainer}>
           <div className="fadeIn6">
-          <Img
-          loading="eager"
+            <Img
               fluid={data.RajahMaggaySmilingGatsby.childImageSharp.fluid}
               className={classes.image}
             />
