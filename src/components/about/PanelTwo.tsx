@@ -76,21 +76,21 @@ export default function PanelTwo() {
     query {
       RajahMaggay3People: file(relativePath: { eq: "RajahMaggay3People.jpg" }) {
         childImageSharp {
-          fluid(maxWidth: 1200, quality: 100) {
+          fluid(maxWidth: 1150, quality: 100) {
             ...GatsbyImageSharpFluid
           }
         }
       }
       RajahMaggayGroup: file(relativePath: { eq: "RajahMaggayGroup.jpg" }) {
         childImageSharp {
-          fluid(maxWidth: 1200, quality: 100) {
+          fluid(maxWidth: 1000, quality: 100) {
             ...GatsbyImageSharpFluid
           }
         }
       }
       RajahMaggayDesk: file(relativePath: { eq: "RajahMaggayDesk.png" }) {
         childImageSharp {
-          fluid(maxWidth: 1200, quality: 100) {
+          fluid(maxWidth: 1150, quality: 100) {
             ...GatsbyImageSharpFluid
           }
         }
@@ -112,6 +112,7 @@ export default function PanelTwo() {
         <Img
           fluid={data.RajahMaggay3People.childImageSharp.fluid}
           className={classes.image}
+          loading="auto"
         />
       </div>
 
@@ -155,6 +156,7 @@ export default function PanelTwo() {
         <Img
           fluid={data.RajahMaggayGroup.childImageSharp.fluid}
           className={classes.image}
+          loading="auto"
         />
       </div>
       <div className={classes.title}>Community Involvement</div>
@@ -221,6 +223,7 @@ export default function PanelTwo() {
         <Img
           fluid={data.RajahMaggayDesk.childImageSharp.fluid}
           className={classes.image}
+          loading="auto"
         />
       </div>
       <div className={classes.title}>Why Edmonton Catholic</div>

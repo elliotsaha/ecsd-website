@@ -15,6 +15,8 @@ const useStyles = makeStyles((theme: any) =>
   createStyles({
     root: {
       background: "linear-gradient(50deg, #2C2E39, #16181E)",
+      position: 'relative',
+      overflow: 'hidden',
     },
     Panel: {
       zIndex: 1,
