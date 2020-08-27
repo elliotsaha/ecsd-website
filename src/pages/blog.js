@@ -78,6 +78,7 @@ const useStyles = makeStyles(theme =>
   })
 )
 const BlogIndex = ({ data, location }) => {
+  console.log(data)
   const posts = data.allMarkdownRemark.edges
   const classes = useStyles()
   return (

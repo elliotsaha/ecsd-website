@@ -98,7 +98,7 @@ export default function PanelTwo() {
     query {
       nightSkyGatsby: file(relativePath: { eq: "nightSky.jpg" }) {
         childImageSharp {
-          fluid(maxWidth: 5000, quality: 100) {
+          fluid(maxWidth: 600, quality: 100) {
             ...GatsbyImageSharpFluid
           }
         }

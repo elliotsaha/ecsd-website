@@ -310,7 +310,7 @@ const PanelOne = () => {
                 ) {
                   childImageSharp {
                     
-                      fluid(maxWidth: 1500, quality: 100) {
+                      fluid(maxWidth: 850, quality: 100) {
                         ...GatsbyImageSharpFluid
                       }
                     

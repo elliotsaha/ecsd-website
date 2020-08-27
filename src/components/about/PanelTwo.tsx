@@ -76,21 +76,21 @@ export default function PanelTwo() {
     query {
       RajahMaggay3People: file(relativePath: { eq: "RajahMaggay3People.jpg" }) {
         childImageSharp {
-          fluid(maxWidth: 5000, quality: 100) {
+          fluid(maxWidth: 1200, quality: 100) {
             ...GatsbyImageSharpFluid
           }
         }
       }
       RajahMaggayGroup: file(relativePath: { eq: "RajahMaggayGroup.jpg" }) {
         childImageSharp {
-          fluid(maxWidth: 5000, quality: 100) {
+          fluid(maxWidth: 1200, quality: 100) {
             ...GatsbyImageSharpFluid
           }
         }
       }
-      RajahMaggayDesk: file(relativePath: { eq: "RajahMaggayDesk.jpeg" }) {
+      RajahMaggayDesk: file(relativePath: { eq: "RajahMaggayDesk.png" }) {
         childImageSharp {
-          fluid(maxWidth: 5000, quality: 100) {
+          fluid(maxWidth: 1200, quality: 100) {
             ...GatsbyImageSharpFluid
           }
         }

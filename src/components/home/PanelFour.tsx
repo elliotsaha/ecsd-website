@@ -87,6 +87,12 @@ const useStyles = makeStyles((theme: Theme) =>
       display: "block",
       marginTop: "auto",
       marginBottom: "auto",
+      [theme.breakpoints.down(1418)]: {
+        width: "35rem",
+      },
+      [theme.breakpoints.down(1218)]: {
+        width: "30rem",
+      },
       [theme.breakpoints.down(550)]: {
         margin: 0,
       },
@@ -172,7 +178,7 @@ export default function PanelFour() {
         relativePath: { eq: "RajahMaggayPink.png" }
       ) {
         childImageSharp {
-          fluid(maxWidth: 5000, quality: 100) {
+          fluid(maxWidth: 700, quality: 100) {
             ...GatsbyImageSharpFluid
           }
         }

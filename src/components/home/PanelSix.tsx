@@ -184,7 +184,6 @@ const useStyles = makeStyles((theme: Theme) =>
 )
 export default function PanelSix() {
   const classes = useStyles()
-
   // Ref for intersection observer
   const sectionRef5 = useRef(null)
 
@@ -221,13 +220,13 @@ export default function PanelSix() {
       : fadeIn(".fadeIn5")
   }, [intersection])
 
-  const data = useStaticQuery(graphql`
+  const imageData = useStaticQuery(graphql`
     query {
       RajahMaggayBlueGatsby: file(
         relativePath: { eq: "RajahMaggayBlue.png" }
       ) {
         childImageSharp {
-          fluid(maxWidth: 4000, quality: 100) {
+          fluid(maxWidth: 700, quality: 100) {
             ...GatsbyImageSharpFluid
           }
         }
@@ -248,7 +247,7 @@ export default function PanelSix() {
 
           <div className={classes.content}>
             <Img
-              fluid={data.RajahMaggayBlueGatsby.childImageSharp.fluid}
+              fluid={imageData.RajahMaggayBlueGatsby.childImageSharp.fluid}
               loading="eager"
               className={classes.image}
             />
