@@ -96,7 +96,7 @@ export default function PanelTwo() {
   const classes = useStyles()
   const data = useStaticQuery(graphql`
     query {
-      collaboration: file(relativePath: { eq: "collaboration.png" }) {
+      collaboration: file(relativePath: { eq: "collaboration.jpg" }) {
         childImageSharp {
           fluid(maxWidth: 600, quality: 50) {
             ...GatsbyImageSharpFluid_withWebp

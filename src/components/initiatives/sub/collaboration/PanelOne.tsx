@@ -54,7 +54,7 @@ const useStyles = makeStyles(theme =>
 export default function PanelOne() {
   const data = useStaticQuery(graphql`
     query {
-      nightSkyGatsby: file(relativePath: { eq: "collaboration.png" }) {
+      nightSkyGatsby: file(relativePath: { eq: "collaboration.jpg" }) {
         childImageSharp {
           fluid(maxWidth: 1300, quality: 50) {
             ...GatsbyImageSharpFluid_withWebp_noBase64
