@@ -73,10 +73,10 @@ const useStyles = makeStyles(theme =>
 export default function PanelOne({ title, date }: any) {
   const data = useStaticQuery(graphql`
     query {
-      nightSkyGatsby: file(relativePath: { eq: "nightSky.jpg" }) {
+      Image: file(relativePath: { eq: "blogTemplate.jpg" }) {
         childImageSharp {
-          fluid(maxWidth: 1300, quality: 100) {
-            ...GatsbyImageSharpFluid
+          fluid(maxWidth: 2000, quality: 50) {
+            ...GatsbyImageSharpFluid_withWebp_noBase64
           }
         }
       }
@@ -88,7 +88,7 @@ export default function PanelOne({ title, date }: any) {
       <div className={classes.imageContainer}>
         <div className={classes.imageOuter}>
           <Img
-            fluid={data.nightSkyGatsby.childImageSharp.fluid}
+            fluid={data.Image.childImageSharp.fluid}
             className={classes.image}
             loading="eager"
           />

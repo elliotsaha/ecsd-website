@@ -34,7 +34,7 @@ const useStyles = makeStyles(theme =>
       marginLeft: "0.75rem",
       textAlign: "center",
       width: "100%",
-      height: "90vh",
+      height: "87vh",
       fontFamily: "Gilroy, sans-serif",
       fontWeight: "bolder",
       fontSize: "5rem",
@@ -44,9 +44,21 @@ const useStyles = makeStyles(theme =>
       alignItems: "center",
       justifyContent: "center",
       marginTop: "auto",
-      [theme.breakpoints.down(450)]: {
-        fontSize: "3rem",
+      paddingRight: "0.5rem",
+      paddingLeft: "0.5rem",
+      [theme.breakpoints.down(950)]: {
+        fontSize: "2.5rem",
         lineHeight: "4rem",
+      },
+      [theme.breakpoints.down(680)]: {
+        fontSize: "2rem",
+        lineHeight: "3rem",
+      },
+      [theme.breakpoints.down(530)]: {
+        fontSize: "1.8rem",
+        lineHeight: "2rem",
+        letterSpacing: "0.1rem",
+        marginLeft: "0.05rem",
       },
     },
   })

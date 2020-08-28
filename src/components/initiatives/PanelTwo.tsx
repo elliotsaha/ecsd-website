@@ -46,6 +46,10 @@ const useStyles = makeStyles(theme =>
           paddingTop: "6rem",
           fontSize: "1.4rem",
         },
+        [theme.breakpoints.down(310)]: {
+          paddingTop: "9rem",
+          fontSize: "1.1rem",
+        },
       },
       title3Lines: {
           marginBottom: '-2rem',
@@ -62,12 +66,13 @@ const useStyles = makeStyles(theme =>
           fontSize: "1.7rem",
         },
         [theme.breakpoints.down(380)]: {
-          paddingTop: "6rem",
+          paddingTop: "5.5rem",
           fontSize: "1.4rem",
         },
         [theme.breakpoints.down(310)]: {
           paddingTop: "7rem",
           fontSize: "1.1rem",
+          marginBottom: '0rem',
         },
       },
       title1Line: {
@@ -81,12 +86,16 @@ const useStyles = makeStyles(theme =>
         letterSpacing: "0.15rem",
         fontSize: "2rem",
         [theme.breakpoints.down(500)]: {
-          paddingTop: "6rem",
+          paddingTop: "7rem",
           fontSize: "1.7rem",
         },
         [theme.breakpoints.down(380)]: {
-          paddingTop: "6rem",
+          paddingTop: "7rem",
           fontSize: "1.4rem",
+        },
+        [theme.breakpoints.down(310)]: {
+          paddingTop: "10rem",
+          fontSize: "1.1rem",
         },
       },    
   })
