@@ -1,7 +1,6 @@
 import React, { useState } from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/Layout"
-import Bio from "../components/blog/bio"
 import BlogLayout from "../components/blog/layout"
 import SEO from "../components/seo"
 import { rhythm, scale } from "../utils/typography"

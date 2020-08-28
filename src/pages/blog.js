@@ -2,7 +2,6 @@ import React, { useState } from "react"
 import { Link, graphql } from "gatsby"
 import Img from "gatsby-image"
 import { createStyles, makeStyles } from "@material-ui/core/styles"
-import Bio from "../components/blog/bio"
 import BlogLayout from "../components/blog/layout"
 import Layout from "../components/Layout"
 import SEO from "../components/seo"
@@ -78,7 +77,6 @@ const useStyles = makeStyles(theme =>
   })
 )
 const BlogIndex = ({ data, location }) => {
-  console.log(data)
   const posts = data.allMarkdownRemark.edges
   const classes = useStyles()
   return (
@@ -151,7 +149,7 @@ export const pageQuery = graphql`
             description
             thumbnail {
               childImageSharp {
-                fluid(maxWidth: 5000, quality: 100) {
+                fluid(maxWidth: 300, quality: 70) {
                   ...GatsbyImageSharpFluid
                 }
               }

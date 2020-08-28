@@ -226,7 +226,7 @@ export default function PanelSix() {
         relativePath: { eq: "RajahMaggayBlue.png" }
       ) {
         childImageSharp {
-          fluid(maxWidth: 700, quality: 100) {
+          fluid(maxWidth: 700, quality: 80) {
             ...GatsbyImageSharpFluid
           }
         }

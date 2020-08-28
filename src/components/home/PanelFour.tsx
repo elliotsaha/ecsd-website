@@ -178,7 +178,7 @@ export default function PanelFour() {
         relativePath: { eq: "RajahMaggayPink.png" }
       ) {
         childImageSharp {
-          fluid(maxWidth: 700, quality: 100) {
+          fluid(maxWidth: 700, quality: 75) {
             ...GatsbyImageSharpFluid
           }
         }

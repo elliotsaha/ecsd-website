@@ -173,7 +173,7 @@ export default function PanelSeven() {
         relativePath: { eq: "RajahMaggaySmiling.png" }
       ) {
         childImageSharp {
-          fluid(maxWidth: 700, quality: 100) {
+          fluid(maxWidth: 700, quality: 75) {
             ...GatsbyImageSharpFluid
           }
         }
