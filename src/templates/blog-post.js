@@ -12,6 +12,12 @@ const useStyles = makeStyles(theme =>
     root: {
       backgroundColor: "#E1E1EB",
     },
+    inner: {
+      [theme.breakpoints.down(800)]: {
+        marginRight: '1rem',
+        marginLeft: '1rem',
+      },
+    },
     nav: {
       backgroundColor: "#16181E",
     },
@@ -19,6 +25,9 @@ const useStyles = makeStyles(theme =>
       fontFamily: "Gilroy, sans-serif",
       fontWeight: 400,
       fontSize: "1.15rem",
+      [theme.breakpoints.down(800)]: {
+        fontSize: '1rem',
+      },
     },
     listContainer: {
       display: `flex`,
@@ -49,48 +58,48 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
     <Layout>
       <PanelOne title={post.frontmatter.title} date={post.frontmatter.date} />
       <div className={classes.root}>
-        <BlogLayout location={location} title={siteTitle}>
-          <SEO
-            title={post.frontmatter.title}
-            description={post.frontmatter.description || post.excerpt}
-          />
-          <div>
-            <section
-              dangerouslySetInnerHTML={{ __html: post.html }}
-              className={classes.description}
+        <div className={classes.inner}>
+          <BlogLayout location={location} title={siteTitle}>
+            <SEO
+              title={post.frontmatter.title}
+              description={post.frontmatter.description || post.excerpt}
             />
-            <hr
-              className={classes.hr}
-            />
-          </div>
+            <div>
+              <section
+                dangerouslySetInnerHTML={{ __html: post.html }}
+                className={classes.description}
+              />
+              <hr className={classes.hr} />
+            </div>
 
-          <nav>
-            <ul className={classes.listContainer}>
-              <li className={classes.link}>
-                {previous && (
-                  <Link
-                    to={previous.fields.slug}
-                    rel="prev"
-                    className={classes.link}
-                  >
-                    ← {previous.frontmatter.title}
-                  </Link>
-                )}
-              </li>
-              <li className={classes.link}>
-                {next && (
-                  <Link
-                    to={next.fields.slug}
-                    rel="next"
-                    className={classes.link}
-                  >
-                    {next.frontmatter.title} →
-                  </Link>
-                )}
-              </li>
-            </ul>
-          </nav>
-        </BlogLayout>
+            <nav>
+              <ul className={classes.listContainer}>
+                <li className={classes.link}>
+                  {previous && (
+                    <Link
+                      to={previous.fields.slug}
+                      rel="prev"
+                      className={classes.link}
+                    >
+                      ← {previous.frontmatter.title}
+                    </Link>
+                  )}
+                </li>
+                <li className={classes.link}>
+                  {next && (
+                    <Link
+                      to={next.fields.slug}
+                      rel="next"
+                      className={classes.link}
+                    >
+                      {next.frontmatter.title} →
+                    </Link>
+                  )}
+                </li>
+              </ul>
+            </nav>
+          </BlogLayout>
+        </div>
       </div>
     </Layout>
   )

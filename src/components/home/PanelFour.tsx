@@ -9,6 +9,8 @@ import Img from "gatsby-image"
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     body: {
+      overflow: "hidden",
+      position: "relative",
       background: "linear-gradient(30deg, #2C2E39, #16181E)",
       [theme.breakpoints.down(981)]: {
         backgroundColor: "#333645",
@@ -17,33 +19,40 @@ const useStyles = makeStyles((theme: Theme) =>
     root: {
       display: "flex",
       flexDirection: "row-reverse",
-      alignItems: "space-around",
+      alignItems: "center",
+      justifyContent: 'center',
       paddingTop: "4rem",
       overflow: "auto",
       position: "relative",
       paddingBottom: "2.5rem",
       [theme.breakpoints.down(550)]: {
         display: "block",
-        paddingTop: "2rem",
+        paddingTop: "3rem",
       },
     },
     text: {
+      maxWidth: "50rem",
       marginLeft: "3rem",
       color: "white",
       [theme.breakpoints.down(1059)]: {
         textAlign: "center",
-        marginRight: "3rem",
+        marginLeft: '1.5rem',
+        marginRight: '1.5rem',
       },
     },
     title: {
       fontFamily: "Gilroy, sans-serif",
       fontWeight: "bolder",
       fontSize: "4rem",
+      lineHeight: '3.5rem',
+      paddingBottom: '1rem',
       [theme.breakpoints.down(420)]: {
         fontSize: "3.2rem",
+        lineHeight: '3rem',
       },
       [theme.breakpoints.down(340)]: {
-        fontSize: "2.8rem",
+        fontSize: "3rem",
+        lineHeight: '2.5rem',
       },
     },
     para: {
@@ -58,7 +67,15 @@ const useStyles = makeStyles((theme: Theme) =>
       },
       [theme.breakpoints.down(1216)]: {
         fontSize: "1.2rem",
-        marginRight: "0rem",
+      },
+      [theme.breakpoints.down(544)]: {
+        fontSize: "1.25rem",
+      },
+      [theme.breakpoints.down(370)]: {
+        fontSize: "1.1rem",
+      },
+      [theme.breakpoints.down(330)]: {
+        fontSize: "0.95rem",
       },
     },
     bar: {
@@ -71,12 +88,19 @@ const useStyles = makeStyles((theme: Theme) =>
         marginLeft: "auto",
         marginRight: "auto",
       },
+      [theme.breakpoints.down(544)]: {
+        height: "0.7rem",
+      width: "6rem",
+      },
+      [theme.breakpoints.down(370)]: {
+        height: "0.5rem",
+        width: "5rem",
+      },
     },
     imgContainer: {
       marginLeft: "3rem",
       marginRight: "3rem",
       display: "flex",
-      width: "300rem",
       marginTop: "5rem",
       [theme.breakpoints.down(1059)]: {
         display: "none",
@@ -101,7 +125,7 @@ const useStyles = makeStyles((theme: Theme) =>
       display: "none",
 
       [theme.breakpoints.down(1059)]: {
-        marginTop: "3rem",
+        marginTop: "2rem",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
@@ -174,9 +198,7 @@ export default function PanelFour() {
 
   const data = useStaticQuery(graphql`
     query {
-      RajahMaggayPinkGatsby: file(
-        relativePath: { eq: "RajahMaggayPink.png" }
-      ) {
+      RajahMaggayPinkGatsby: file(relativePath: { eq: "RajahMaggayPink.png" }) {
         childImageSharp {
           fluid(maxWidth: 700, quality: 75) {
             ...GatsbyImageSharpFluid
@@ -226,6 +248,7 @@ export default function PanelFour() {
               </div>
             </div>
           </div>
+
           <div className={classes.buttonContainer}>
             <Link to="/about">
               <Button className={classes.Button}>Read More</Button>

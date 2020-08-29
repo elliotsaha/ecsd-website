@@ -1,63 +1,70 @@
-import React, { useState, useRef, useEffect } from "react"
+import React, { useState } from "react"
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles"
 import TextField from "@material-ui/core/TextField"
-import { useIntersection } from "react-use"
-import { gsap } from "gsap"
-import RajahMaggaySmiling from "../../img/RajahMaggaySmiling.png"
 import Button from "@material-ui/core/Button"
-import { Link, graphql, useStaticQuery } from "gatsby"
-import Img from "gatsby-image"
+import Layout from "../components/Layout"
 import Error from "@material-ui/icons/Error"
 
-const useStyles = makeStyles((theme: Theme) =>
+const useStyles = makeStyles(theme =>
   createStyles({
-    aboveRoot: {
-      background: "linear-gradient(30deg, #2C2E39, #16181E)",
+    root: {
+      background: "linear-gradient(50deg, #2C2E39, #16181E)",
+      position: "relative",
+      paddingBottom: "5rem",
+      paddingTop: "5rem",
+      overflow: "auto",
       display: "flex",
       alignItems: "center",
       justifyContent: "center",
-      position: "relative",
-      overflow: "hidden",
+      minHeight: "100vh",
+      lineHeight: 0,
+      marginTop: "-1px",
+      marginBottom: "-1px",
     },
-    root: {
-      overflow: "auto",
-      display: "grid",
-      gridTemplateColumns: "1fr 1fr",
-      maxWidth: "200rem",
+    text: {
+      width: "30rem",
+      textAlign: "center",
+      
     },
-    button: {
-      fontFamily: "Gilroy, sans-serif",
-      fontWeight: "bold",
+    title: {
+      paddingTop: "3rem",
       color: "white",
-      padding: "0.7rem",
-      paddingLeft: "1.5rem",
-      paddingRight: "1.5rem",
-      display: "block",
-      textTransform: "none",
-      transition: "all 1s ease",
-      background:
-        "linear-gradient(90deg, rgba(255, 155, 33, 1) 0%, rgba(232,118,19,1) 100%)",
-      "&:hover": {
-        transition: "all 1s ease",
-        background:
-          "linear-gradient(90deg, rgba(255, 155, 33, 1) 0%, rgba(232,118,19,1) 65%)",
-      },
+      fontSize: "3rem",
+      lineHeight: "2.6rem",
+      fontFamily: "Gilroy, sans-serif",
+      paddingBottom: "2rem",
+      fontWeight: 700,
+    },
+    para: {
+      color: "white",
+      fontSize: "1rem",
+      lineHeight: "1.7rem",
+      fontFamily: "Gilroy, sans-serif",
+      marginRight: "2rem",
+      marginLeft: "2rem",
+    },
+    buttonContainer: {
+      textAlign: "center",
+      paddingTop: "1.5rem",
+    },
+    helperText: {
+      fontFamily: "Gilroy, sans-serif",
     },
     textField: {
       paddingBottom: "1.5rem",
-      display: "block",
       "& label.Mui-focused": {
-        color: "#FF9B21",
+        color: "white",
         fontFamily: "Gilroy, sans-serif",
         fontWeight: "bold",
       },
       "& label": {
-        color: "#FF9B21",
+        color: "white",
         fontFamily: "Gilroy, sans-serif",
-        fontWeight: "bold",
+        fontWeight: 700,
+        
       },
       "& .MuiInput-underline:after": {
-        borderBottomColor: "#FF9B21",
+        borderBottomColor: "white",
       },
       "& .MuiOutlinedInput-root": {
         width: "29rem",
@@ -68,34 +75,34 @@ const useStyles = makeStyles((theme: Theme) =>
           width: "16rem",
         },
         "& fieldset": {
-          borderColor: "#FF9B21",
+          borderColor: "white",
           borderWidth: "0.2rem",
+          color: "white",
         },
         "&:hover fieldset": {
-          borderColor: "#FF9B21",
+          borderColor: "white",
           borderWidth: "0.2rem",
         },
         "&.Mui-focused fieldset": {
-          borderColor: "#E87613",
+          borderColor: "white",
           borderWidth: "0.2rem",
         },
       },
     },
     textFieldError: {
       paddingBottom: "1.5rem",
-      display: "block",
       "& label.Mui-focused": {
-        color: "#FF9B21",
+        color: "white",
         fontFamily: "Gilroy, sans-serif",
         fontWeight: "bold",
       },
       "& label": {
-        color: "#FF9B21",
+        color: "white",
         fontFamily: "Gilroy, sans-serif",
-        fontWeight: "bold",
+        fontWeight: 600,
       },
       "& .MuiInput-underline:after": {
-        borderBottomColor: "#FF9B21",
+        borderBottomColor: "white",
       },
       "& .MuiOutlinedInput-root": {
         width: "29rem",
@@ -103,54 +110,18 @@ const useStyles = makeStyles((theme: Theme) =>
           width: "20rem",
         },
         "& fieldset": {
-          borderColor: "#FF9B21",
+          borderColor: "white",
           borderWidth: "0.2rem",
+          color: "white",
         },
         "&:focus fieldset": {
-          borderColor: "#FF9B21",
+          borderColor: "white",
           borderWidth: "0.2rem",
         },
         "&.Mui-focused fieldset": {
-          borderColor: "#FF9B21",
+          borderColor: "white",
           borderWidth: "0.2rem",
         },
-      },
-    },
-    helperText: {
-      fontFamily: "Gilroy, sans-serif",
-      fontWeight: "bold",
-    },
-    formContainer: {
-      margin: "auto",
-      padding: "3rem",
-      [theme.breakpoints.down(1100)]: {
-        padding: 0,
-        margin: "auto",
-        gridColumnStart: "1",
-        gridColumnEnd: "3",
-        paddingTop: "3.5rem",
-        paddingBottom: "3.5rem",
-      },
-    },
-    title: {
-      gridColumnStart: "1",
-      gridColumnEnd: "3",
-      textAlign: "center",
-      paddingTop: "2rem",
-      lineHeight: "8rem",
-      color: "white",
-      fontFamily: "Gilroy, sans-serif",
-      fontWeight: "bolder",
-      fontSize: "6rem",
-      [theme.breakpoints.down(430)]: {
-        fontSize: "4rem",
-        lineHeight: "5rem",
-      },
-    },
-    image: {
-      width: "30rem",
-      [theme.breakpoints.down(1100)]: {
-        display: "none",
       },
     },
     error: {
@@ -159,73 +130,56 @@ const useStyles = makeStyles((theme: Theme) =>
       marginRight: "0.5rem",
       marginLeft: "-0.8rem",
     },
-    imageContainer: {
-      marginBottom: "auto",
-      marginLeft: "auto",
-      marginRight: "auto",
-      marginTop: "2.6rem",
-    },
-    bar: {
-      marginLeft: "auto",
-      marginRight: "auto",
+    moreCaseStudiesButton: {
+      paddingRight: "1.5rem",
+      paddingLeft: "1.5rem",
+      zIndex: 3,
+      color: "white",
       background:
         "linear-gradient(90deg, rgba(255, 155, 33, 1) 0%, rgba(232,118,19,1) 100%)",
-      borderRadius: "0.3rem",
-      height: "1rem",
-      width: "8rem",
-      [theme.breakpoints.down(430)]: {
-        height: "0.6rem",
-        width: "6rem",
+      textTransform: "none",
+      fontFamily: "Gilroy, sans-serif",
+      fontWeight: 500,
+      padding: "0.7rem",
+      transition: "all 0.4s ease",
+      "&:hover": {
+        background:
+        "linear-gradient(90deg, rgba(255, 155, 33, 1) 0%, rgba(232,118,19,1) 100%)",
+        opacity: "85%",
       },
     },
   })
 )
-
-export default function PanelSeven() {
-  const data = useStaticQuery(graphql`
-    query {
-      RajahMaggaySmilingGatsby: file(
-        relativePath: { eq: "RajahMaggaySmiling.png" }
-      ) {
-        childImageSharp {
-          fluid(maxWidth: 700, quality: 75) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-    }
-  `)
-
+export default function PanelFour() {
   const classes = useStyles()
-
   // States for form fields and error handling
   const [name, setName] = useState("")
   const [isNameError, setIsNameError] = useState(false)
-  const [nameError, setNameError] = useState(<React.Fragment />)
+  const [nameError, setNameError] = useState("")
 
   const [email, setEmail] = useState("")
   const [isEmailError, setIsEmailError] = useState(false)
-  const [emailError, setEmailError] = useState(<React.Fragment />)
+  const [emailError, setEmailError] = useState("")
 
   const [paragraph, setParagraph] = useState("")
   const [isParagraphError, setIsParagraphError] = useState(false)
-  const [paragraphError, setParagraphError] = useState(<React.Fragment />)
+  const [paragraphError, setParagraphError] = useState("")
 
   // Setting the form field to state
-  const onNameChange = (event: any) => {
+  const onNameChange = event => {
     setName(event.target.value)
   }
 
-  const onEmailChange = (event: any) => {
+  const onEmailChange = event => {
     setEmail(event.target.value)
   }
 
-  const onParagraphChange = (event: any) => {
+  const onParagraphChange = event => {
     setParagraph(event.target.value)
   }
 
   // On submit function function for error handling
-  const onSubmit = (e: any) => {
+  const onSubmit = e => {
     setIsEmailError(false)
     setIsNameError(false)
     setIsParagraphError(false)
@@ -265,67 +219,20 @@ export default function PanelSeven() {
       )
     }
   }
-
-  // Defining ref for intersection observer
-  const sectionRef6 = useRef(null)
-
-  const intersection = useIntersection(sectionRef6, {
-    root: null,
-    rootMargin: "0px",
-    threshold: 0.3,
-  })
-
-  useEffect(() => {
-    // Fade in animation when scroll in
-    const fadeIn = (element: any) => {
-      gsap.to(element, 1, {
-        opacity: 1,
-        y: -0,
-        ease: "power3.out",
-        stagger: {
-          amount: 0,
-        },
-      })
-    }
-
-    // Fade out animation when scroll out
-    const fadeOut = (element: any) => {
-      gsap.to(element, 1, {
-        opacity: 0,
-        y: -20,
-        ease: "power3.out",
-      })
-    }
-    intersection && intersection.intersectionRatio < 0.3
-      ? // Not Reached
-        fadeOut(".fadeIn6")
-      : fadeIn(".fadeIn6")
-  }, [intersection])
-
   return (
-    <div className={classes.aboveRoot}>
-      {/*Defining Ref for intersection observer*/}
-      <div ref={sectionRef6} className={classes.root}>
-        <div className={classes.title}>
-          <span>
-            {/*Title*/}
-            <div className="fadeIn6">Contact</div>
-            <div className="fadeIn6">
-              <div className={classes.bar} />
-            </div>
-          </span>
-        </div>
-        <div className={classes.formContainer}>
-          <form
-            name="contact"
-            method="post"
-            data-netlify="true"
-            data-netlify-honeypot="bot-field"
-            action="/thankyou"
-          >
-            <input type="hidden" name="bot-field" />{" "}
-            {/*Hidden Input for bot detection*/}
-            <div className="fadeIn6">
+    <Layout>
+      <div className={classes.root}>
+        <div className={classes.text}>
+          <div className={classes.title}>Contact Us </div>
+          <div className={classes.formContainer}>
+            <form
+              name="contact"
+              method="post"
+              data-netlify="true"
+              data-netlify-honeypot="bot-field"
+            >
+              <input type="hidden" name="bot-field" />{" "}
+              {/*Hidden Input for bot detection*/}
               {/*Text field for Name*/}
               <TextField
                 InputProps={{
@@ -350,8 +257,6 @@ export default function PanelSeven() {
                 variant="outlined"
                 color="secondary"
               />
-            </div>
-            <div className="fadeIn6">
               {/*Text field for Email*/}
               <TextField
                 InputProps={{
@@ -375,8 +280,6 @@ export default function PanelSeven() {
                 error={isEmailError}
                 variant="outlined"
               />
-            </div>
-            <div className="fadeIn6">
               {/*Text field for Message*/}
               <TextField
                 InputProps={{
@@ -390,7 +293,7 @@ export default function PanelSeven() {
                   className: classes.helperText,
                 }}
                 multiline
-                rows={10}
+                rows={8}
                 className={
                   isParagraphError ? classes.textFieldError : classes.textField
                 }
@@ -402,31 +305,20 @@ export default function PanelSeven() {
                 error={isParagraphError}
                 variant="outlined"
               />
-            </div>
-            <div>
-              <div className="fadeIn6">
+              <div>
                 {/*Submit Button*/}
                 <Button
                   type="submit"
-                  className={classes.button}
+                  className={classes.moreCaseStudiesButton}
                   onClick={onSubmit}
                 >
                   Submit
                 </Button>
               </div>
-            </div>
-          </form>
-        </div>
-        <div className={classes.imageContainer}>
-          <div className="fadeIn6">
-            <Img
-              fluid={data.RajahMaggaySmilingGatsby.childImageSharp.fluid}
-              className={classes.image}
-              loading="eager"
-            />
+            </form>
           </div>
         </div>
       </div>
-    </div>
+    </Layout>
   )
 }

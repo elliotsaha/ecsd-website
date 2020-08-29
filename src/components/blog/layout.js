@@ -6,7 +6,7 @@ const useStyles = makeStyles(theme =>
   createStyles({
     root: {
       display: 'grid',
-      maxWidth: '45rem',
+      maxWidth: '52.5rem',
       marginLeft: 'auto',
       marginRight: 'auto',
       gridGap: '2rem',

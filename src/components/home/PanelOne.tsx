@@ -15,8 +15,8 @@ const useStyles = makeStyles((theme: any) =>
   createStyles({
     root: {
       background: "linear-gradient(50deg, #2C2E39, #16181E)",
-      position: 'relative',
-      overflow: 'hidden',
+      position: "relative",
+      overflow: "hidden",
     },
     Panel: {
       zIndex: 1,
@@ -90,8 +90,8 @@ const useStyles = makeStyles((theme: any) =>
       display: "block",
 
       marginBottom: 0,
-      marginLeft: "22rem",
-      filter: 'brightness(0.7)',
+      marginLeft: "23.5rem",
+      filter: "brightness(0.7)",
       width: "80vh",
       [theme.breakpoints.down(1320)]: {
         marginLeft: "16.5rem",
@@ -105,6 +105,11 @@ const useStyles = makeStyles((theme: any) =>
         marginLeft: "auto",
         marginRight: "auto",
         width: "100%",
+      },
+      [theme.breakpoints.down(300)]: {
+        marginLeft: "auto",
+        marginRight: "auto",
+        width: "120%",
       },
     },
     imageOuter: {
@@ -164,8 +169,8 @@ const useStyles = makeStyles((theme: any) =>
     runningText: {
       fontFamily: "Gilroy, sans-serif",
       fontWeight: 800,
-      fontSize: "3rem",
-      lineHeight: "3.3rem",
+      fontSize: "2.9rem",
+      lineHeight: "3.5rem",
       color: "white",
       [theme.breakpoints.down(1320)]: {
         fontSize: "2.2rem",
@@ -173,6 +178,11 @@ const useStyles = makeStyles((theme: any) =>
       },
       [theme.breakpoints.down(981)]: {
         fontSize: "2.5rem",
+        lineHeight: "3rem",
+      },
+      [theme.breakpoints.down(350)]: {
+        fontSize: "2rem",
+        lineHeight: "2.5rem",
       },
     },
     runningSub: {
@@ -189,7 +199,11 @@ const useStyles = makeStyles((theme: any) =>
       },
       [theme.breakpoints.down(981)]: {
         lineHeight: "2.5rem",
-        fontSize: "2rem",
+        fontSize: "1.5rem",
+      },
+      [theme.breakpoints.down(350)]: {
+        fontSize: "1.4rem",
+        lineHeight: "2rem",
       },
     },
     runningButton: {
@@ -221,13 +235,18 @@ const useStyles = makeStyles((theme: any) =>
     mobileSecoundPanel: {
       display: "none",
       [theme.breakpoints.down(981)]: {
-        display: "block",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
         paddingTop: "4rem",
         paddingBottom: "4rem",
         background: "linear-gradient(20deg, #2C2E39, #16181E)",
         minHeight: "25vh",
         padding: "2rem",
       },
+    },
+    mobileInner: {
+      maxWidth: "42.5rem",
     },
   })
 )
@@ -311,11 +330,9 @@ const PanelOne = () => {
                   relativePath: { eq: "RajahMaggayRed.png" }
                 ) {
                   childImageSharp {
-                    
-                      fluid(maxWidth: 850, quality: 65) {
-                        ...GatsbyImageSharpFluid_noBase64
-                      }
-                    
+                    fluid(maxWidth: 850, quality: 65) {
+                      ...GatsbyImageSharpFluid_noBase64
+                    }
                   }
                 }
               }
@@ -354,13 +371,12 @@ const PanelOne = () => {
             <div className={classes.messageText}>
               <div className={classes.runningText}>
                 I’m Running For <br />
-                Edmonton City <br />
-                Council.
+                Edmonton Catholic <br />
+                School Divison.
               </div>
               <div className={classes.runningSub}>
-                Lorem ipsum dolor sit amet, <br />
-                consectetur adipiscing elit. <br />
-                Aenean et erat nunc.{" "}
+                Supporting every student’s religious <br />journey with inclusion,
+                grace, <br />honesty and forgiveness.
               </div>
               <Link to="/contact">
                 <Button className={classes.runningButton}>Send Message</Button>
@@ -370,16 +386,18 @@ const PanelOne = () => {
         </div>
       </div>
       <div className={classes.mobileSecoundPanel}>
-        <div className={classes.runningText}>
-          I’m Running For Edmonton City Council.
+        <div className={classes.mobileInner}>
+          <div className={classes.runningText}>
+            I’m Running For Edmonton Catholic School Divison.
+          </div>
+          <div className={classes.runningSub}>
+            Supporting every student’s religious journey with inclusion, grace,
+            honesty and forgiveness.
+          </div>
+          <Link to="/contact">
+            <Button className={classes.runningButton}>Send Message</Button>
+          </Link>
         </div>
-        <div className={classes.runningSub}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
-          erat nunc.{" "}
-        </div>
-        <Link to="/contact">
-          <Button className={classes.runningButton}>Send Message</Button>
-        </Link>
       </div>
     </div>
   )

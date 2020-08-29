@@ -12,8 +12,8 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       background: "linear-gradient(70deg, #2C2E39, #16181E)",
-      paddingTop: "3rem",
-      overflow: "auto",
+      paddingTop: "2rem",
+      overflow: "hidden",
       position: "relative",
       [theme.breakpoints.down(981)]: {
         backgroundColor: "#242734",
@@ -46,12 +46,19 @@ const useStyles = makeStyles((theme: Theme) =>
       fontFamily: "Gilroy, sans-serif",
       [theme.breakpoints.down(845)]: {
         fontSize: "4rem",
+        lineHeight: "7rem",
       },
       [theme.breakpoints.down(544)]: {
         fontSize: "3rem",
+        lineHeight: "5rem",
       },
       [theme.breakpoints.down(436)]: {
         fontSize: "2.3rem",
+        lineHeight: "4rem",
+      },
+      [theme.breakpoints.down(335)]: {
+        fontSize: "2rem",
+        lineHeight: "3.5rem",
       },
     },
     bar: {
@@ -62,6 +69,14 @@ const useStyles = makeStyles((theme: Theme) =>
       width: "8rem",
       marginLeft: "auto",
       marginRight: "auto",
+      [theme.breakpoints.down(544)]: {
+        height: "0.7rem",
+      width: "6rem",
+      },
+      [theme.breakpoints.down(370)]: {
+        height: "0.5rem",
+        width: "5rem",
+      },
     },
     cardBody: {
       overflow: "auto",
@@ -80,6 +95,12 @@ const useStyles = makeStyles((theme: Theme) =>
       maxWidth: "37rem",
       [theme.breakpoints.down(445)]: {
         maxWidth: "19rem",
+      },
+      [theme.breakpoints.down(335)]: {
+        maxWidth: "17rem",
+      },
+      [theme.breakpoints.down(316)]: {
+        maxWidth: "15rem",
       },
       marginLeft: "auto",
       marginRight: "auto",
@@ -111,6 +132,7 @@ const useStyles = makeStyles((theme: Theme) =>
       lineHeight: '3.5rem',
       [theme.breakpoints.down(445)]: {
         fontSize: "2rem",
+        lineHeight: "2.3rem",
       },
     },
     para: {
@@ -118,7 +140,7 @@ const useStyles = makeStyles((theme: Theme) =>
       color: "white",
       fontFamily: "Gilroy, sans-serif",
       [theme.breakpoints.down(445)]: {
-        fontSize: "1.1rem",
+        fontSize: "1rem",
       },
     },
     Button: {
@@ -202,7 +224,7 @@ export default function PanelFive() {
             {card(
               friends,
               "Youth Council",
-              "Member of City of Edmonton Youth Council since 2016, served as the Chair of Engagement and Outreach and the Vice Chair of Health and Wellness"
+              "Served as the Chair of Engagement and Outreach and the Vice Chair of Health and Wellness in the City of Edmonton Youth Council"
             )}
             {card(
               council,

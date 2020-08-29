@@ -5,7 +5,7 @@ const useStyles = makeStyles(theme =>
     root: {
       backgroundColor: "#E1E1EB",
       fontFamily: "Gilroy, sans-serif",
-      paddingTop: "3rem",
+      paddingTop: "1.5rem",
       paddingBottom: "3rem",
     },
     titleTop: {
@@ -18,17 +18,37 @@ const useStyles = makeStyles(theme =>
       lineHeight: "2.5rem",
       fontWeight: "bold",
       paddingTop: "1rem",
+      [theme.breakpoints.down(950)]: {
+        fontSize: "2.3rem",
+      },
+      [theme.breakpoints.down(530)]: {
+        fontSize: "1.8rem",
+        lineHeight: "2rem",
+        letterSpacing: "0.2rem",
+        marginLeft: "0.1rem",
+      },
     },
     title: {
       textTransform: "uppercase",
       textAlign: "center",
-      letterSpacing: "0.5rem",
+      letterSpacing: "1.25rem",
       marginLeft: "0.5rem",
       fontSize: "2.3rem",
       paddingBottom: "1rem",
       lineHeight: "2.5rem",
       fontWeight: "bold",
       paddingTop: "4rem",
+      marginRight: '0.5rem',
+      [theme.breakpoints.down(950)]: {
+        fontSize: "2.3rem",
+      },
+      [theme.breakpoints.down(530)]: {
+        fontSize: "1.8rem",
+        lineHeight: "2rem",
+        letterSpacing: "0.2rem",
+        marginLeft: "0.1rem",
+        marginRight: '0.1rem',
+      },
     },
     paraCenter: {
       fontFamily: "Gilroy, sans-serif",
@@ -39,17 +59,24 @@ const useStyles = makeStyles(theme =>
       paddingLeft: "2rem",
       lineHeight: "2.1rem",
       paddingTop: "0.35rem",
+      [theme.breakpoints.down(950)]: {
+        fontSize: "1.3rem",
+      },
     },
     paraContainer: {
       display: "flex",
       alignItems: "center",
       justifyContent: "center",
+      
     },
     para: {
       fontSize: "1.6rem",
       maxWidth: "70rem",
       paddingRight: "2rem",
       paddingLeft: "2rem",
+      [theme.breakpoints.down(950)]: {
+        fontSize: "1.3rem",
+      },
     },
     highlight: {
       paddingBottom: "0.2rem",
@@ -60,6 +87,7 @@ const useStyles = makeStyles(theme =>
     bold: {
       fontSize: "2rem",
       fontWeight: 600,
+      lineHeight: '2.5rem',
     },
   })
 )

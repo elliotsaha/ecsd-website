@@ -64,10 +64,12 @@ const useStyles = makeStyles(theme =>
         [theme.breakpoints.down(500)]: {
           paddingTop: "6rem",
           fontSize: "1.7rem",
+          marginBottom: '-3rem',
         },
         [theme.breakpoints.down(380)]: {
           paddingTop: "5.5rem",
           fontSize: "1.4rem",
+
         },
         [theme.breakpoints.down(310)]: {
           paddingTop: "7rem",

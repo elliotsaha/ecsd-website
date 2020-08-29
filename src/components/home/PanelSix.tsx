@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme: Theme) =>
     root: {
       background: "linear-gradient(70deg, #2C2E39, #16181E)",
       paddingTop: "2rem",
-      overflow: "auto",
+      overflow: "hidden",
       position: "relative",
       paddingBottom: "4rem",
       [theme.breakpoints.down(981)]: {
@@ -23,6 +23,9 @@ const useStyles = makeStyles((theme: Theme) =>
       [theme.breakpoints.down(550)]: {
         display: "block",
         paddingTop: "1rem",
+      },
+      [theme.breakpoints.down(470)]: {
+        paddingBottom: "3rem",
       },
     },
     bar: {
@@ -34,6 +37,14 @@ const useStyles = makeStyles((theme: Theme) =>
       height: "1rem",
       width: "8rem",
       marginBottom: "2.6rem",
+      [theme.breakpoints.down(544)]: {
+        height: "0.7rem",
+      width: "6rem",
+      },
+      [theme.breakpoints.down(370)]: {
+        height: "0.5rem",
+        width: "5rem",
+      },
     },
     title: {
       lineHeight: "9rem",
@@ -41,6 +52,10 @@ const useStyles = makeStyles((theme: Theme) =>
       fontFamily: "Gilroy, sans-serif",
       fontWeight: "bolder",
       fontSize: "6rem",
+      [theme.breakpoints.down(544)]: {
+        fontSize: "5rem",
+        lineHeight: '6rem',
+      },
     },
     content: {
       display: "flex",
@@ -84,9 +99,6 @@ const useStyles = makeStyles((theme: Theme) =>
         paddingLeft: "1rem",
       },
       [theme.breakpoints.down(700)]: {
-        fontSize: "1.1rem",
-      },
-      [theme.breakpoints.down(470)]: {
         display: "none",
       },
       paddingBottom: "1.5rem",
@@ -101,10 +113,8 @@ const useStyles = makeStyles((theme: Theme) =>
       lineHeight: "2rem",
       paddingBottom: "3rem",
       paddingTop: "1.5rem",
+      maxWidth: '18rem',
       [theme.breakpoints.down(700)]: {
-        fontSize: "1.4rem",
-      },
-      [theme.breakpoints.down(470)]: {
         display: "none",
       },
     },
@@ -114,13 +124,7 @@ const useStyles = makeStyles((theme: Theme) =>
       paddingLeft: "2rem",
       paddingBottom: "1.5rem",
       paddingTop: "1.7rem",
-      [theme.breakpoints.down(600)]: {
-        width: 50,
-        height: 50,
-        paddingTop: "2rem",
-        paddingLeft: "1rem",
-      },
-      [theme.breakpoints.down(470)]: {
+      [theme.breakpoints.down(700)]: {
         display: "none",
       },
     },
@@ -128,12 +132,19 @@ const useStyles = makeStyles((theme: Theme) =>
       width: "35rem",
       marginRight: "3rem",
       [theme.breakpoints.down(1240)]: {
-        width: "60%",
+        width: "40rem",
         marginLeft: "auto",
         marginRight: "auto",
+        marginBottom: '3rem',
       },
       [theme.breakpoints.down(770)]: {
-        display: "none",
+        width: '70%',
+      },
+      [theme.breakpoints.down(600)]: {
+        width: '20rem',
+      },
+      [theme.breakpoints.down(340)]: {
+        width: '90%',
       },
     },
     topContainer: {
@@ -144,16 +155,10 @@ const useStyles = makeStyles((theme: Theme) =>
       display: "flex",
     },
     arrow: {},
-    spacer: {
-      display: "block",
-      [theme.breakpoints.down(470)]: {
-        display: "inline",
-      },
-    },
 
     infoContainerMobile: {
       display: "none",
-      [theme.breakpoints.down(470)]: {
+      [theme.breakpoints.down(700)]: {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
@@ -161,6 +166,8 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     infoTD: {
       marginBottom: "3rem",
+      marginRight: '1.5rem',
+      marginLeft: '1.5rem',
     },
     titleMobile: {
       color: "white",
@@ -168,17 +175,29 @@ const useStyles = makeStyles((theme: Theme) =>
       fontWeight: "bolder",
       fontSize: "1.7rem",
       lineHeight: "2rem",
+      [theme.breakpoints.down(310)]: {
+        fontSize: "1.4rem",
+      },
     },
     dateMobile: {
       color: "#9D9D9D",
       fontFamily: "Gilroy, sans-serif",
       fontSize: "1.2rem",
+      [theme.breakpoints.down(310)]: {
+        fontSize: "1rem",
+      },
     },
     arrowMobile: {
+      marginLeft: '0.5rem',
       background:
         "linear-gradient(90deg, rgba(255, 155, 33, 1) 0%, rgba(232,118,19,1) 100%)",
       "-webkit-background-clip": "text",
       "-webkit-text-fill-color": "transparent",
+    },
+    link: {
+      boxShadow: '0 0 0 0',
+      textDecoration: 'none',
+      color: 'white',
     },
   })
 )
@@ -220,11 +239,31 @@ export default function PanelSix() {
       : fadeIn(".fadeIn5")
   }, [intersection])
 
-  const imageData = useStaticQuery(graphql`
+  const data = useStaticQuery(graphql`
     query {
-      RajahMaggayBlueGatsby: file(
-        relativePath: { eq: "RajahMaggayBlue.png" }
-      ) {
+      allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+        edges {
+          node {
+            excerpt
+            fields {
+              slug
+            }
+            frontmatter {
+              date(formatString: "MMM DD, YYYY")
+              title
+              description
+              thumbnail {
+                childImageSharp {
+                  fluid(maxWidth: 300, quality: 70) {
+                    ...GatsbyImageSharpFluid
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      RajahMaggayBlueGatsby: file(relativePath: { eq: "RajahMaggayBlue.png" }) {
         childImageSharp {
           fluid(maxWidth: 700, quality: 80) {
             ...GatsbyImageSharpFluid
@@ -233,7 +272,7 @@ export default function PanelSix() {
       }
     }
   `)
-
+  console.log(data)
   return (
     <div className={classes.root}>
       <div ref={sectionRef5}>
@@ -247,67 +286,79 @@ export default function PanelSix() {
 
           <div className={classes.content}>
             <Img
-              fluid={imageData.RajahMaggayBlueGatsby.childImageSharp.fluid}
+              fluid={data.RajahMaggayBlueGatsby.childImageSharp.fluid}
               className={classes.image}
               loading="eager"
             />
             <div className={classes.blogContainer}>
               <div className={classes.infoContainer}>
-                <span className={classes.infoDate}>July 1 &#8226; Blog</span>
+                
+ <span className={classes.infoDate}>{data.allMarkdownRemark["edges"][0]["node"]["frontmatter"]["date"]}</span>
+ 
                 <div className={classes.infoTitle}>
-                  What Our Community <div className={classes.spacer} />
-                  Deserves
+             <Link to={data.allMarkdownRemark["edges"][0]["node"]["fields"]["slug"]} className={classes.link}>{data.allMarkdownRemark["edges"][0]["node"]["frontmatter"]["title"]}</Link>
                 </div>
                 <div className={classes.arrowContainer}>
-                  <img src={Arrow} alt="Arrow" />
+                <Link to={data.allMarkdownRemark["edges"][0]["node"]["fields"]["slug"]} className={classes.link}><img src={Arrow} alt="Arrow" /></Link>
                 </div>
-                <span className={classes.infoDate}>July 13 &#8226; Blog</span>
+                
+               
+
+                <span className={classes.infoDate}>{data.allMarkdownRemark["edges"][1]["node"]["frontmatter"]["date"]}</span>
+                <div className={classes.infoTitle}><Link to={data.allMarkdownRemark["edges"][1]["node"]["fields"]["slug"]} className={classes.link}>{data.allMarkdownRemark["edges"][1]["node"]["frontmatter"]["title"]}</Link></div>
+                <div className={classes.arrowContainer}>
+                <Link to={data.allMarkdownRemark["edges"][1]["node"]["fields"]["slug"]} className={classes.link}><img src={Arrow} alt="Arrow" /></Link>
+                </div>
+
+                <span className={classes.infoDate}>{data.allMarkdownRemark["edges"][2]["node"]["frontmatter"]["date"]}</span>
                 <div className={classes.infoTitle}>
-                  Black Lives Matter <div className={classes.spacer} /> News
+                <Link to={data.allMarkdownRemark["edges"][2]["node"]["fields"]["slug"]} className={classes.link}>
+                  {data.allMarkdownRemark["edges"][2]["node"]["frontmatter"]["title"]}
+                </Link>
                 </div>
                 <div className={classes.arrowContainer}>
-                  <img src={Arrow} alt="Arrow" />
+                <Link to={data.allMarkdownRemark["edges"][2]["node"]["fields"]["slug"]} className={classes.link}><img src={Arrow} alt="Arrow" className={classes.arrow} /></Link>
                 </div>
-                <span className={classes.infoDate}>July 18 &#8226; Blog</span>
-                <div className={classes.infoTitle}>
-                  Feminism Icons of the <div className={classes.spacer} />
-                  Century
-                </div>
-                <div className={classes.arrowContainer}>
-                  <img src={Arrow} alt="Arrow" className={classes.arrow} />
-                </div>
+
               </div>
               <div className={classes.infoContainerMobile}>
                 <div>
+                <Link to={data.allMarkdownRemark["edges"][0]["node"]["fields"]["slug"]} className={classes.link}>
                   <div className={classes.infoTD}>
                     <div className={classes.dateMobile}>
-                      July 1 &#8226; Blog
+                    {data.allMarkdownRemark["edges"][0]["node"]["frontmatter"]["date"]}
                     </div>
                     <div className={classes.titleMobile}>
-                      What Our Community <br />
-                      Deserves{" "}
+                    {data.allMarkdownRemark["edges"][0]["node"]["frontmatter"]["title"]}
                       <span className={classes.arrowMobile}>&rarr;</span>
                     </div>
                   </div>
-                  <div className={classes.infoTD}>
+                </Link>
+                  
+                <Link to={data.allMarkdownRemark["edges"][1]["node"]["fields"]["slug"]} className={classes.link}>
+                      <div className={classes.infoTD}>
                     <div className={classes.dateMobile}>
-                      July 13 &#8226; Blog
+                    {data.allMarkdownRemark["edges"][1]["node"]["frontmatter"]["date"]}
                     </div>
                     <div className={classes.titleMobile}>
-                      Black Lives Matter <br />
-                      News <span className={classes.arrowMobile}>&rarr;</span>
-                    </div>
-                  </div>
-                  <div className={classes.infoTD}>
-                    <div className={classes.dateMobile}>
-                      July 18 &#8226; Blog
-                    </div>
-                    <div className={classes.titleMobile}>
-                      Feminism Icons of the <br />
-                      Century{" "}
+                    {data.allMarkdownRemark["edges"][1]["node"]["frontmatter"]["title"]}
                       <span className={classes.arrowMobile}>&rarr;</span>
                     </div>
                   </div>
+                </Link>
+              
+                <Link to={data.allMarkdownRemark["edges"][2]["node"]["fields"]["slug"]} className={classes.link}>
+                  <div className={classes.infoTD}>
+                    <div className={classes.dateMobile}>
+                    {data.allMarkdownRemark["edges"][2]["node"]["frontmatter"]["date"]}
+                    </div>
+                    <div className={classes.titleMobile}>
+                    {data.allMarkdownRemark["edges"][2]["node"]["frontmatter"]["title"]}
+                      <span className={classes.arrowMobile}>&rarr;</span>
+                    </div>
+                  </div>
+                </Link>
+                  
                 </div>
               </div>
             </div>

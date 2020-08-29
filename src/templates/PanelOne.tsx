@@ -75,7 +75,7 @@ export default function PanelOne({ title, date }: any) {
     query {
       Image: file(relativePath: { eq: "blogTemplate.jpg" }) {
         childImageSharp {
-          fluid(maxWidth: 2000, quality: 50) {
+          fluid(maxWidth: 2000, quality: 100) {
             ...GatsbyImageSharpFluid_withWebp_noBase64
           }
         }

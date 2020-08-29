@@ -43,6 +43,14 @@ const useStyles = makeStyles((theme: Theme) =>
         paddingLeft: "1.5rem",
         paddingRight: "1.5rem",
       },
+      [theme.breakpoints.down(350)]: {
+        paddingLeft: "1rem",
+        paddingRight: "1rem",
+      },
+      [theme.breakpoints.down(300)]: {
+        paddingLeft: "0.7rem",
+        paddingRight: "0.7rem",
+      },
     },
     copyright: {
       fontFamily: "Gilroy, sans-serif",
@@ -56,6 +64,12 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     iconInner: {
       width: "5rem",
+      [theme.breakpoints.down(500)]: {
+        width: '4rem',
+      },
+      [theme.breakpoints.down(300)]: {
+        width: '3.5rem',
+      },
     },
   })
 )

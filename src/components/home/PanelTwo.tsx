@@ -10,8 +10,8 @@ const useStyles = makeStyles((theme: Theme) =>
       background: "linear-gradient(50deg, #16181E, #2C2E39)",
       fontFamily: "Gilroy, sans-serif",
       textAlign: "center",
-      paddingTop: "3rem",
-      paddingBottom: "6rem",
+      paddingTop: "5rem",
+      paddingBottom: "5rem",
       zIndex: 20,
       [theme.breakpoints.down(981)]: {
         backgroundColor: "#333645",
@@ -20,10 +20,20 @@ const useStyles = makeStyles((theme: Theme) =>
     title: {
       color: "white",
       fontWeight: "bolder",
-      fontSize: "6rem",
-      lineHeight: "8rem",
-      [theme.breakpoints.down(445)]: {
+      fontSize: "5rem",
+      lineHeight: "6rem",
+      marginRight: "0.5rem",
+      marginLeft: "0.5rem",
+      paddingBottom: "0.5rem",
+      [theme.breakpoints.down(600)]: {
         fontSize: "4rem",
+        lineHeight: "4.7rem",
+        paddingBottom: '0.5rem',
+      },
+      [theme.breakpoints.down(350)]: {
+        fontSize: "3rem",
+        lineHeight: "5rem",
+        paddingBottom: 0,
       },
     },
     bar: {
@@ -34,16 +44,33 @@ const useStyles = makeStyles((theme: Theme) =>
       width: "8rem",
       marginLeft: "auto",
       marginRight: "auto",
+      [theme.breakpoints.down(600)]: {
+        height: "0.7rem",
+      width: "6rem",
+      },
+      [theme.breakpoints.down(350)]: {
+        height: "0.5rem",
+        width: "5rem",
+      },
     },
     para: {
       color: "white",
       fontSize: "1.75rem",
-      paddingRight: "20rem",
-      paddingLeft: "20rem",
+      maxWidth: "50rem",
       [theme.breakpoints.down(1181)]: {
         paddingRight: "3rem",
         paddingLeft: "3rem",
       },
+      [theme.breakpoints.down(400)]: {
+        paddingRight: '1rem',
+        paddingLeft: '1rem',
+        fontSize: '1.2rem',
+      },
+    },
+    paraContainer: {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center'
     },
   })
 )
@@ -89,20 +116,24 @@ export default function PanelTwo() {
     <div ref={sectionRef1}>
       <div className={classes.root}>
         <div className="fadeIn1">
-          <div className={classes.title}>Vision</div>
+          <div className={classes.title}>Why ECSD</div>
           <div className={classes.bar} />
           <br />
-          <div className={classes.para}>
-            As a collective, we should create a unique community-based identity
-            that is fortified in collaboration and the equitable treatment of
-            all citizens.
-            <br />
-            <br />
-            This vision includes increased safety and the space to not just
-            survive but thrive. In our constantly evolving city we have the
-            opportunity to be proactive about the actions we take and to define
-            the very path that will shape our communities for generations to
-            come.
+          <div className={classes.paraContainer}>
+            <div className={classes.para}>
+              Our spirituality and faith are always growing. Looking back at my
+              schooling experience and the experiences of my peers I have such
+              fondness in what I was able to learn and find comfort in. When I
+              think of Edmonton Catholic I think of my family.
+              <br />
+              <br />
+              That being said, I do know that many people do not have the
+              greatest experience with Catholicism. There is a complicated past
+              that has left generational trauma for our Indigenous Folx that we
+              need to continuously work at reconciling. At the very least, we
+              should help our young people navigate this system at this crucial
+              time in their lives.
+            </div>
           </div>
         </div>
       </div>

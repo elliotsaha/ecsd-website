@@ -51,11 +51,11 @@ const useStyles = makeStyles(theme =>
         lineHeight: "4rem",
       },
       [theme.breakpoints.down(680)]: {
-        fontSize: "2rem",
+        fontSize: "2.5rem",
         lineHeight: "3rem",
       },
       [theme.breakpoints.down(530)]: {
-        fontSize: "1.8rem",
+        fontSize: "2.2rem",
         lineHeight: "2rem",
         letterSpacing: "0.1rem",
         marginLeft: "0.05rem",
