@@ -109,7 +109,7 @@ const useStyles = makeStyles((theme: Theme) =>
       color: "white",
       fontFamily: "Gilroy, sans-serif",
       fontWeight: "bolder",
-      fontSize: "1.7rem",
+      fontSize: "1.45rem",
       lineHeight: "2rem",
       paddingBottom: "3rem",
       paddingTop: "1.5rem",
