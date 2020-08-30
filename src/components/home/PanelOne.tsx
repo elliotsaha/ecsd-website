@@ -85,6 +85,7 @@ const useStyles = makeStyles((theme: any) =>
       height: "100%",
       display: "flex",
       alignItems: "flex-end",
+      overflow: 'hidden',
     },
     image: {
       display: "block",
@@ -118,6 +119,7 @@ const useStyles = makeStyles((theme: any) =>
       visibility: "hidden",
       opacity: 0,
       [theme.breakpoints.down(981)]: {
+        overflow: 'hidden',
         marginLeft: "auto",
         marginRight: "auto",
         width: "30rem",
@@ -235,6 +237,7 @@ const useStyles = makeStyles((theme: any) =>
     mobileSecoundPanel: {
       display: "none",
       [theme.breakpoints.down(981)]: {
+        zIndex: 3,
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
@@ -246,6 +249,7 @@ const useStyles = makeStyles((theme: any) =>
       },
     },
     mobileInner: {
+      overflow: 'hidden',
       maxWidth: "42.5rem",
     },
   })
